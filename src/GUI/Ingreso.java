@@ -5,8 +5,9 @@ public class Ingreso extends javax.swing.JFrame {
     public Ingreso() {
         initComponents();
         this.remove(Form);
-        Form = Ingreso;
         this.add(Ingreso);
+        validate();
+        repaint();
     }
     
     private void verContraseña(javax.swing.JPasswordField campo) {
@@ -23,37 +24,41 @@ public class Ingreso extends javax.swing.JFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         Ingreso = new javax.swing.JPanel();
-        jLabel_ingresar = new javax.swing.JLabel();
-        jLabel_nombre = new javax.swing.JLabel();
-        input_nombre = new javax.swing.JTextField();
-        jLabel_contraseña = new javax.swing.JLabel();
-        panel_contraseña = new javax.swing.JPanel();
-        input_contraseña = new javax.swing.JPasswordField();
-        button_verContraseña = new javax.swing.JButton();
-        vacio = new javax.swing.JLabel();
-        botton_zone = new javax.swing.JPanel();
-        jButton_ingresar = new javax.swing.JButton();
-        jButton_registrar = new javax.swing.JButton();
+        LABEL_INGRESAR_TITULO = new javax.swing.JLabel();
+        VACIO_01 = new javax.swing.JLabel();
+        LABEL_INGRESAR_USUARIO = new javax.swing.JLabel();
+        inputIngresarUsuario = new javax.swing.JTextField();
+        VACIO_02 = new javax.swing.JLabel();
+        LABEL_INGRESAR_CONTRASEÑA = new javax.swing.JLabel();
+        PANEL_INGRESAR_CONTRASEÑA = new javax.swing.JPanel();
+        inputIngresarContraseña = new javax.swing.JPasswordField();
+        buttonIngresarVerContraseña = new javax.swing.JButton();
+        VACIO_03 = new javax.swing.JLabel();
+        MENSAJE_INGRESAR = new javax.swing.JLabel();
+        VACIO_04 = new javax.swing.JLabel();
+        PANEL_INGRESAR_BOTONES = new javax.swing.JPanel();
+        bottonIngresarIngresar = new javax.swing.JButton();
+        bottonIngresarRegistrarse = new javax.swing.JButton();
         Registro = new javax.swing.JPanel();
-        jLabel_registrase = new javax.swing.JLabel();
-        jLabel_nombreR = new javax.swing.JLabel();
-        input_nombreR = new javax.swing.JTextField();
-        jLabel_contraseñaR = new javax.swing.JLabel();
-        panel_contraseñaR = new javax.swing.JPanel();
-        input_contraseñaR = new javax.swing.JPasswordField();
-        button_verContraseñaR = new javax.swing.JButton();
-        jLabel_documento = new javax.swing.JLabel();
-        Pane_documentol = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabe_tipoUsuario = new javax.swing.JLabel();
-        Pane_documentol1 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox();
-        vacioR = new javax.swing.JLabel();
-        botton_zone1 = new javax.swing.JPanel();
-        jButton_ingresar1 = new javax.swing.JButton();
-        jButton_registrar1 = new javax.swing.JButton();
+        LABEL_REGISTRASE_TITULO = new javax.swing.JLabel();
+        LABEL_REGISTRASE_USUARIO = new javax.swing.JLabel();
+        inputRegistrarseUsuario = new javax.swing.JTextField();
+        LABEL_REGISTRARSE_CONTRASEÑA = new javax.swing.JLabel();
+        PANEL_REGISTRARSE_CONTRASEÑA = new javax.swing.JPanel();
+        inputRegistraseContraseña = new javax.swing.JPasswordField();
+        bottonRegistraseVerContraseña = new javax.swing.JButton();
+        LABEL_REGISTRASE_DOCUMENTO = new javax.swing.JLabel();
+        PANEL_REGISTRASE_DOCUMENTO = new javax.swing.JPanel();
+        inputRegistroTipoDoc = new javax.swing.JComboBox();
+        inputRegistroDocumento = new javax.swing.JTextField();
+        LABEL_REGISTRASE_TIPO_USUARIO = new javax.swing.JLabel();
+        PANEL_REGISTRASE_TIPO_USUARIO = new javax.swing.JPanel();
+        inputRegistroTipoUsuario = new javax.swing.JComboBox();
+        inputRegistroUsuarioClave = new javax.swing.JTextField();
+        VACIO_06 = new javax.swing.JLabel();
+        PANEL_REGITRASE_BOTTONES = new javax.swing.JPanel();
+        buttonRegistroIngresar = new javax.swing.JButton();
+        buttonRegistroRegistro = new javax.swing.JButton();
         Imagen = new javax.swing.JPanel();
         toby_png = new javax.swing.JLabel();
         Form = new javax.swing.JPanel();
@@ -62,296 +67,311 @@ public class Ingreso extends javax.swing.JFrame {
         Ingreso.setMaximumSize(new java.awt.Dimension(452, 552));
         Ingreso.setMinimumSize(new java.awt.Dimension(452, 552));
         Ingreso.setPreferredSize(new java.awt.Dimension(452, 552));
-        Ingreso.setLayout(new java.awt.GridLayout(7, 1));
+        Ingreso.setLayout(new java.awt.GridLayout(12, 1));
 
-        jLabel_ingresar.setBackground(new java.awt.Color(242, 237, 215));
-        jLabel_ingresar.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
-        jLabel_ingresar.setForeground(new java.awt.Color(242, 237, 215));
-        jLabel_ingresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_ingresar.setText("Ingresar");
-        Ingreso.add(jLabel_ingresar);
+        LABEL_INGRESAR_TITULO.setBackground(new java.awt.Color(242, 237, 215));
+        LABEL_INGRESAR_TITULO.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        LABEL_INGRESAR_TITULO.setForeground(new java.awt.Color(242, 237, 215));
+        LABEL_INGRESAR_TITULO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LABEL_INGRESAR_TITULO.setText("Ingresar");
+        LABEL_INGRESAR_TITULO.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        Ingreso.add(LABEL_INGRESAR_TITULO);
+        Ingreso.add(VACIO_01);
 
-        jLabel_nombre.setBackground(new java.awt.Color(242, 237, 215));
-        jLabel_nombre.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel_nombre.setForeground(new java.awt.Color(242, 237, 215));
-        jLabel_nombre.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel_nombre.setText("Nombre de Usuario");
-        jLabel_nombre.setAlignmentX(5.0F);
-        jLabel_nombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jLabel_nombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel_nombre.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Ingreso.add(jLabel_nombre);
+        LABEL_INGRESAR_USUARIO.setBackground(new java.awt.Color(242, 237, 215));
+        LABEL_INGRESAR_USUARIO.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        LABEL_INGRESAR_USUARIO.setForeground(new java.awt.Color(242, 237, 215));
+        LABEL_INGRESAR_USUARIO.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LABEL_INGRESAR_USUARIO.setText("Nombre de Usuario");
+        LABEL_INGRESAR_USUARIO.setAlignmentX(5.0F);
+        LABEL_INGRESAR_USUARIO.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        LABEL_INGRESAR_USUARIO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LABEL_INGRESAR_USUARIO.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Ingreso.add(LABEL_INGRESAR_USUARIO);
 
-        input_nombre.setBackground(new java.awt.Color(242, 237, 215));
-        input_nombre.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        input_nombre.setText("Fulanito de Tal");
-        input_nombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        Ingreso.add(input_nombre);
+        inputIngresarUsuario.setBackground(new java.awt.Color(242, 237, 215));
+        inputIngresarUsuario.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        inputIngresarUsuario.setText("Juanito de Tal");
+        inputIngresarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
+        Ingreso.add(inputIngresarUsuario);
+        Ingreso.add(VACIO_02);
 
-        jLabel_contraseña.setBackground(new java.awt.Color(242, 237, 215));
-        jLabel_contraseña.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel_contraseña.setForeground(new java.awt.Color(242, 237, 215));
-        jLabel_contraseña.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel_contraseña.setText("Contraseña");
-        jLabel_contraseña.setAlignmentX(5.0F);
-        jLabel_contraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jLabel_contraseña.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel_contraseña.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Ingreso.add(jLabel_contraseña);
+        LABEL_INGRESAR_CONTRASEÑA.setBackground(new java.awt.Color(242, 237, 215));
+        LABEL_INGRESAR_CONTRASEÑA.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        LABEL_INGRESAR_CONTRASEÑA.setForeground(new java.awt.Color(242, 237, 215));
+        LABEL_INGRESAR_CONTRASEÑA.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LABEL_INGRESAR_CONTRASEÑA.setText("Contraseña");
+        LABEL_INGRESAR_CONTRASEÑA.setAlignmentX(5.0F);
+        LABEL_INGRESAR_CONTRASEÑA.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        LABEL_INGRESAR_CONTRASEÑA.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LABEL_INGRESAR_CONTRASEÑA.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Ingreso.add(LABEL_INGRESAR_CONTRASEÑA);
 
-        panel_contraseña.setBackground(new java.awt.Color(242, 237, 215));
-        panel_contraseña.setForeground(new java.awt.Color(57, 50, 50));
-        panel_contraseña.setLayout(new javax.swing.BoxLayout(panel_contraseña, javax.swing.BoxLayout.LINE_AXIS));
+        PANEL_INGRESAR_CONTRASEÑA.setBackground(new java.awt.Color(242, 237, 215));
+        PANEL_INGRESAR_CONTRASEÑA.setForeground(new java.awt.Color(57, 50, 50));
+        PANEL_INGRESAR_CONTRASEÑA.setLayout(new javax.swing.BoxLayout(PANEL_INGRESAR_CONTRASEÑA, javax.swing.BoxLayout.LINE_AXIS));
 
-        input_contraseña.setBackground(new java.awt.Color(242, 237, 215));
-        input_contraseña.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        input_contraseña.setText("fulanitodeltal123");
-        input_contraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        panel_contraseña.add(input_contraseña);
+        inputIngresarContraseña.setBackground(new java.awt.Color(242, 237, 215));
+        inputIngresarContraseña.setText("juanitodetal102");
+        inputIngresarContraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
+        PANEL_INGRESAR_CONTRASEÑA.add(inputIngresarContraseña);
 
-        button_verContraseña.setBackground(new java.awt.Color(242, 237, 215));
-        button_verContraseña.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        button_verContraseña.setForeground(new java.awt.Color(57, 50, 50));
-        button_verContraseña.setText("Ver");
-        button_verContraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        button_verContraseña.setBorderPainted(false);
-        button_verContraseña.setFocusPainted(false);
-        button_verContraseña.addActionListener(new java.awt.event.ActionListener() {
+        buttonIngresarVerContraseña.setBackground(new java.awt.Color(242, 237, 215));
+        buttonIngresarVerContraseña.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
+        buttonIngresarVerContraseña.setForeground(new java.awt.Color(57, 50, 50));
+        buttonIngresarVerContraseña.setText("Ver");
+        buttonIngresarVerContraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        buttonIngresarVerContraseña.setBorderPainted(false);
+        buttonIngresarVerContraseña.setFocusPainted(false);
+        buttonIngresarVerContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_verContraseñaActionPerformed(evt);
+                buttonIngresarVerContraseñaActionPerformed(evt);
             }
         });
-        panel_contraseña.add(button_verContraseña);
+        PANEL_INGRESAR_CONTRASEÑA.add(buttonIngresarVerContraseña);
 
-        Ingreso.add(panel_contraseña);
-        Ingreso.add(vacio);
+        Ingreso.add(PANEL_INGRESAR_CONTRASEÑA);
+        Ingreso.add(VACIO_03);
 
-        botton_zone.setBackground(new java.awt.Color(57, 50, 50));
+        MENSAJE_INGRESAR.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
+        MENSAJE_INGRESAR.setForeground(new java.awt.Color(242, 237, 215));
+        MENSAJE_INGRESAR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MENSAJE_INGRESAR.setText("Si no posse una cuenta, puede crearla con clicleando el boton \"registrase\"");
+        Ingreso.add(MENSAJE_INGRESAR);
+        Ingreso.add(VACIO_04);
 
-        jButton_ingresar.setBackground(new java.awt.Color(228, 130, 87));
-        jButton_ingresar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton_ingresar.setForeground(new java.awt.Color(242, 237, 215));
-        jButton_ingresar.setText("Ingresar");
-        jButton_ingresar.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jButton_ingresar.setBorderPainted(false);
-        jButton_ingresar.setFocusPainted(false);
-        jButton_ingresar.setFocusable(false);
+        PANEL_INGRESAR_BOTONES.setBackground(new java.awt.Color(57, 50, 50));
 
-        jButton_registrar.setBackground(new java.awt.Color(58, 99, 81));
-        jButton_registrar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton_registrar.setForeground(new java.awt.Color(242, 237, 215));
-        jButton_registrar.setText("Registrarse");
-        jButton_registrar.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jButton_registrar.setBorderPainted(false);
-        jButton_registrar.setFocusPainted(false);
-        jButton_registrar.setFocusable(false);
-        jButton_registrar.addActionListener(new java.awt.event.ActionListener() {
+        bottonIngresarIngresar.setBackground(new java.awt.Color(228, 130, 87));
+        bottonIngresarIngresar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        bottonIngresarIngresar.setForeground(new java.awt.Color(242, 237, 215));
+        bottonIngresarIngresar.setText("Ingresar");
+        bottonIngresarIngresar.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        bottonIngresarIngresar.setBorderPainted(false);
+        bottonIngresarIngresar.setFocusPainted(false);
+        bottonIngresarIngresar.setFocusable(false);
+
+        bottonIngresarRegistrarse.setBackground(new java.awt.Color(58, 99, 81));
+        bottonIngresarRegistrarse.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        bottonIngresarRegistrarse.setForeground(new java.awt.Color(242, 237, 215));
+        bottonIngresarRegistrarse.setText("Registrarse");
+        bottonIngresarRegistrarse.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        bottonIngresarRegistrarse.setBorderPainted(false);
+        bottonIngresarRegistrarse.setFocusPainted(false);
+        bottonIngresarRegistrarse.setFocusable(false);
+        bottonIngresarRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_registrarActionPerformed(evt);
+                bottonIngresarRegistrarseActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout botton_zoneLayout = new javax.swing.GroupLayout(botton_zone);
-        botton_zone.setLayout(botton_zoneLayout);
-        botton_zoneLayout.setHorizontalGroup(
-            botton_zoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botton_zoneLayout.createSequentialGroup()
+        javax.swing.GroupLayout PANEL_INGRESAR_BOTONESLayout = new javax.swing.GroupLayout(PANEL_INGRESAR_BOTONES);
+        PANEL_INGRESAR_BOTONES.setLayout(PANEL_INGRESAR_BOTONESLayout);
+        PANEL_INGRESAR_BOTONESLayout.setHorizontalGroup(
+            PANEL_INGRESAR_BOTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PANEL_INGRESAR_BOTONESLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bottonIngresarIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButton_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(bottonIngresarRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
-        botton_zoneLayout.setVerticalGroup(
-            botton_zoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botton_zoneLayout.createSequentialGroup()
-                .addGroup(botton_zoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+        PANEL_INGRESAR_BOTONESLayout.setVerticalGroup(
+            PANEL_INGRESAR_BOTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_INGRESAR_BOTONESLayout.createSequentialGroup()
+                .addGroup(PANEL_INGRESAR_BOTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bottonIngresarIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bottonIngresarRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
 
-        Ingreso.add(botton_zone);
+        Ingreso.add(PANEL_INGRESAR_BOTONES);
 
         Registro.setBackground(new java.awt.Color(57, 50, 50));
         Registro.setMaximumSize(new java.awt.Dimension(452, 552));
         Registro.setMinimumSize(new java.awt.Dimension(452, 552));
         Registro.setPreferredSize(new java.awt.Dimension(452, 552));
-        Registro.setLayout(new java.awt.GridLayout(11, 1));
+        Registro.setLayout(new java.awt.GridLayout(12, 1));
 
-        jLabel_registrase.setBackground(new java.awt.Color(242, 237, 215));
-        jLabel_registrase.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
-        jLabel_registrase.setForeground(new java.awt.Color(242, 237, 215));
-        jLabel_registrase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_registrase.setText("Registarse");
-        Registro.add(jLabel_registrase);
+        LABEL_REGISTRASE_TITULO.setBackground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRASE_TITULO.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        LABEL_REGISTRASE_TITULO.setForeground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRASE_TITULO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LABEL_REGISTRASE_TITULO.setText("Registarse");
+        LABEL_REGISTRASE_TITULO.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        Registro.add(LABEL_REGISTRASE_TITULO);
 
-        jLabel_nombreR.setBackground(new java.awt.Color(242, 237, 215));
-        jLabel_nombreR.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel_nombreR.setForeground(new java.awt.Color(242, 237, 215));
-        jLabel_nombreR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel_nombreR.setText("Nombre de Usuario");
-        jLabel_nombreR.setAlignmentX(5.0F);
-        jLabel_nombreR.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jLabel_nombreR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel_nombreR.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Registro.add(jLabel_nombreR);
+        LABEL_REGISTRASE_USUARIO.setBackground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRASE_USUARIO.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        LABEL_REGISTRASE_USUARIO.setForeground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRASE_USUARIO.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LABEL_REGISTRASE_USUARIO.setText("Nombre de Usuario");
+        LABEL_REGISTRASE_USUARIO.setAlignmentX(5.0F);
+        LABEL_REGISTRASE_USUARIO.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        LABEL_REGISTRASE_USUARIO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LABEL_REGISTRASE_USUARIO.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Registro.add(LABEL_REGISTRASE_USUARIO);
 
-        input_nombreR.setBackground(new java.awt.Color(242, 237, 215));
-        input_nombreR.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        input_nombreR.setText("Fulanito de Tal");
-        input_nombreR.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
-        Registro.add(input_nombreR);
+        inputRegistrarseUsuario.setBackground(new java.awt.Color(242, 237, 215));
+        inputRegistrarseUsuario.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        inputRegistrarseUsuario.setText("Fulanito de Tal");
+        inputRegistrarseUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
+        Registro.add(inputRegistrarseUsuario);
 
-        jLabel_contraseñaR.setBackground(new java.awt.Color(242, 237, 215));
-        jLabel_contraseñaR.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel_contraseñaR.setForeground(new java.awt.Color(242, 237, 215));
-        jLabel_contraseñaR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel_contraseñaR.setText("Contraseña");
-        jLabel_contraseñaR.setAlignmentX(5.0F);
-        jLabel_contraseñaR.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jLabel_contraseñaR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel_contraseñaR.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Registro.add(jLabel_contraseñaR);
+        LABEL_REGISTRARSE_CONTRASEÑA.setBackground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRARSE_CONTRASEÑA.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        LABEL_REGISTRARSE_CONTRASEÑA.setForeground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRARSE_CONTRASEÑA.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LABEL_REGISTRARSE_CONTRASEÑA.setText("Contraseña");
+        LABEL_REGISTRARSE_CONTRASEÑA.setAlignmentX(5.0F);
+        LABEL_REGISTRARSE_CONTRASEÑA.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        LABEL_REGISTRARSE_CONTRASEÑA.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LABEL_REGISTRARSE_CONTRASEÑA.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Registro.add(LABEL_REGISTRARSE_CONTRASEÑA);
 
-        panel_contraseñaR.setBackground(new java.awt.Color(242, 237, 215));
-        panel_contraseñaR.setForeground(new java.awt.Color(57, 50, 50));
-        panel_contraseñaR.setLayout(new javax.swing.BoxLayout(panel_contraseñaR, javax.swing.BoxLayout.LINE_AXIS));
+        PANEL_REGISTRARSE_CONTRASEÑA.setBackground(new java.awt.Color(242, 237, 215));
+        PANEL_REGISTRARSE_CONTRASEÑA.setForeground(new java.awt.Color(57, 50, 50));
+        PANEL_REGISTRARSE_CONTRASEÑA.setLayout(new javax.swing.BoxLayout(PANEL_REGISTRARSE_CONTRASEÑA, javax.swing.BoxLayout.LINE_AXIS));
 
-        input_contraseñaR.setBackground(new java.awt.Color(242, 237, 215));
-        input_contraseñaR.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        input_contraseñaR.setText("fulanitodeltal123");
-        input_contraseñaR.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
-        panel_contraseñaR.add(input_contraseñaR);
+        inputRegistraseContraseña.setBackground(new java.awt.Color(242, 237, 215));
+        inputRegistraseContraseña.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        inputRegistraseContraseña.setText("fulanitodeltal123");
+        inputRegistraseContraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
+        PANEL_REGISTRARSE_CONTRASEÑA.add(inputRegistraseContraseña);
 
-        button_verContraseñaR.setBackground(new java.awt.Color(242, 237, 215));
-        button_verContraseñaR.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        button_verContraseñaR.setForeground(new java.awt.Color(57, 50, 50));
-        button_verContraseñaR.setText("Ver");
-        button_verContraseñaR.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        button_verContraseñaR.setBorderPainted(false);
-        button_verContraseñaR.setFocusPainted(false);
-        button_verContraseñaR.addActionListener(new java.awt.event.ActionListener() {
+        bottonRegistraseVerContraseña.setBackground(new java.awt.Color(242, 237, 215));
+        bottonRegistraseVerContraseña.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
+        bottonRegistraseVerContraseña.setForeground(new java.awt.Color(57, 50, 50));
+        bottonRegistraseVerContraseña.setText("Ver");
+        bottonRegistraseVerContraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        bottonRegistraseVerContraseña.setBorderPainted(false);
+        bottonRegistraseVerContraseña.setFocusPainted(false);
+        bottonRegistraseVerContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_verContraseñaRActionPerformed(evt);
+                bottonRegistraseVerContraseñaActionPerformed(evt);
             }
         });
-        panel_contraseñaR.add(button_verContraseñaR);
+        PANEL_REGISTRARSE_CONTRASEÑA.add(bottonRegistraseVerContraseña);
 
-        Registro.add(panel_contraseñaR);
+        Registro.add(PANEL_REGISTRARSE_CONTRASEÑA);
 
-        jLabel_documento.setBackground(new java.awt.Color(242, 237, 215));
-        jLabel_documento.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel_documento.setForeground(new java.awt.Color(242, 237, 215));
-        jLabel_documento.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel_documento.setText("Documento");
-        jLabel_documento.setAlignmentX(5.0F);
-        jLabel_documento.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jLabel_documento.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel_documento.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Registro.add(jLabel_documento);
+        LABEL_REGISTRASE_DOCUMENTO.setBackground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRASE_DOCUMENTO.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        LABEL_REGISTRASE_DOCUMENTO.setForeground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRASE_DOCUMENTO.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LABEL_REGISTRASE_DOCUMENTO.setText("Documento");
+        LABEL_REGISTRASE_DOCUMENTO.setAlignmentX(5.0F);
+        LABEL_REGISTRASE_DOCUMENTO.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        LABEL_REGISTRASE_DOCUMENTO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LABEL_REGISTRASE_DOCUMENTO.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Registro.add(LABEL_REGISTRASE_DOCUMENTO);
 
-        Pane_documentol.setLayout(new javax.swing.BoxLayout(Pane_documentol, javax.swing.BoxLayout.X_AXIS));
+        PANEL_REGISTRASE_DOCUMENTO.setLayout(new javax.swing.BoxLayout(PANEL_REGISTRASE_DOCUMENTO, javax.swing.BoxLayout.X_AXIS));
 
-        jTextField1.setBackground(new java.awt.Color(242, 237, 215));
-        jTextField1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField1.setText("100010001001");
-        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
-        Pane_documentol.add(jTextField1);
+        inputRegistroTipoDoc.setBackground(new java.awt.Color(242, 237, 215));
+        inputRegistroTipoDoc.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        inputRegistroTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cedula", "TI", "Pasaporte", "Cedula E" }));
+        inputRegistroTipoDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 237, 215)));
+        inputRegistroTipoDoc.setEditor(null);
+        inputRegistroTipoDoc.setFocusCycleRoot(true);
+        inputRegistroTipoDoc.setLightWeightPopupEnabled(false);
+        inputRegistroTipoDoc.setOpaque(false);
+        inputRegistroTipoDoc.setPreferredSize(new java.awt.Dimension(113, 22));
+        inputRegistroTipoDoc.setRequestFocusEnabled(false);
+        PANEL_REGISTRASE_DOCUMENTO.add(inputRegistroTipoDoc);
 
-        jComboBox1.setBackground(new java.awt.Color(242, 237, 215));
-        jComboBox1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cedula", "TI", "Pasaporte", "Cedula E" }));
-        jComboBox1.setFocusable(false);
-        jComboBox1.setOpaque(false);
-        jComboBox1.setRequestFocusEnabled(false);
-        Pane_documentol.add(jComboBox1);
+        inputRegistroDocumento.setBackground(new java.awt.Color(242, 237, 215));
+        inputRegistroDocumento.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        inputRegistroDocumento.setText("100010001001");
+        inputRegistroDocumento.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
+        PANEL_REGISTRASE_DOCUMENTO.add(inputRegistroDocumento);
 
-        Registro.add(Pane_documentol);
+        Registro.add(PANEL_REGISTRASE_DOCUMENTO);
 
-        jLabe_tipoUsuario.setBackground(new java.awt.Color(242, 237, 215));
-        jLabe_tipoUsuario.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabe_tipoUsuario.setForeground(new java.awt.Color(242, 237, 215));
-        jLabe_tipoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabe_tipoUsuario.setText("Tipo usuario");
-        jLabe_tipoUsuario.setAlignmentX(5.0F);
-        jLabe_tipoUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jLabe_tipoUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabe_tipoUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Registro.add(jLabe_tipoUsuario);
+        LABEL_REGISTRASE_TIPO_USUARIO.setBackground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRASE_TIPO_USUARIO.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        LABEL_REGISTRASE_TIPO_USUARIO.setForeground(new java.awt.Color(242, 237, 215));
+        LABEL_REGISTRASE_TIPO_USUARIO.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LABEL_REGISTRASE_TIPO_USUARIO.setText("Tipo usuario");
+        LABEL_REGISTRASE_TIPO_USUARIO.setAlignmentX(5.0F);
+        LABEL_REGISTRASE_TIPO_USUARIO.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        LABEL_REGISTRASE_TIPO_USUARIO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LABEL_REGISTRASE_TIPO_USUARIO.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Registro.add(LABEL_REGISTRASE_TIPO_USUARIO);
 
-        Pane_documentol1.setLayout(new javax.swing.BoxLayout(Pane_documentol1, javax.swing.BoxLayout.X_AXIS));
+        PANEL_REGISTRASE_TIPO_USUARIO.setLayout(new javax.swing.BoxLayout(PANEL_REGISTRASE_TIPO_USUARIO, javax.swing.BoxLayout.X_AXIS));
 
-        jTextField2.setBackground(new java.awt.Color(242, 237, 215));
-        jTextField2.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField2.setText("Clave secreta");
-        jTextField2.setToolTipText("Cada usuario tiene una clave secreta. Para poder identificarse como veterinario o administrador debe ingresar una clave secreta. Su usted es usurio, puede dejar este campo vacio");
-        jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
-        Pane_documentol1.add(jTextField2);
+        inputRegistroTipoUsuario.setBackground(new java.awt.Color(242, 237, 215));
+        inputRegistroTipoUsuario.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        inputRegistroTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuario", "Veterinario", "Administrador" }));
+        inputRegistroTipoUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(242, 237, 215)));
+        inputRegistroTipoUsuario.setFocusable(false);
+        inputRegistroTipoUsuario.setLightWeightPopupEnabled(false);
+        inputRegistroTipoUsuario.setOpaque(false);
+        inputRegistroTipoUsuario.setRequestFocusEnabled(false);
+        inputRegistroTipoUsuario.setVerifyInputWhenFocusTarget(false);
+        PANEL_REGISTRASE_TIPO_USUARIO.add(inputRegistroTipoUsuario);
 
-        jComboBox2.setBackground(new java.awt.Color(242, 237, 215));
-        jComboBox2.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuario", "Veterinario", "Administrador" }));
-        jComboBox2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jComboBox2.setFocusable(false);
-        jComboBox2.setLightWeightPopupEnabled(false);
-        jComboBox2.setOpaque(false);
-        jComboBox2.setRequestFocusEnabled(false);
-        jComboBox2.setVerifyInputWhenFocusTarget(false);
-        Pane_documentol1.add(jComboBox2);
+        inputRegistroUsuarioClave.setBackground(new java.awt.Color(242, 237, 215));
+        inputRegistroUsuarioClave.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        inputRegistroUsuarioClave.setText("Clave secreta");
+        inputRegistroUsuarioClave.setToolTipText("Cada usuario tiene una clave secreta. Para poder identificarse como veterinario o administrador debe ingresar una clave secreta. Su usted es usurio, puede dejar este campo vacio");
+        inputRegistroUsuarioClave.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
+        PANEL_REGISTRASE_TIPO_USUARIO.add(inputRegistroUsuarioClave);
 
-        Registro.add(Pane_documentol1);
-        Registro.add(vacioR);
+        Registro.add(PANEL_REGISTRASE_TIPO_USUARIO);
+        Registro.add(VACIO_06);
 
-        botton_zone1.setBackground(new java.awt.Color(57, 50, 50));
+        PANEL_REGITRASE_BOTTONES.setBackground(new java.awt.Color(57, 50, 50));
 
-        jButton_ingresar1.setBackground(new java.awt.Color(228, 130, 87));
-        jButton_ingresar1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton_ingresar1.setForeground(new java.awt.Color(242, 237, 215));
-        jButton_ingresar1.setText("Ingresar");
-        jButton_ingresar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jButton_ingresar1.setBorderPainted(false);
-        jButton_ingresar1.setFocusPainted(false);
-        jButton_ingresar1.setFocusable(false);
-        jButton_ingresar1.addActionListener(new java.awt.event.ActionListener() {
+        buttonRegistroIngresar.setBackground(new java.awt.Color(228, 130, 87));
+        buttonRegistroIngresar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        buttonRegistroIngresar.setForeground(new java.awt.Color(242, 237, 215));
+        buttonRegistroIngresar.setText("Ingresar");
+        buttonRegistroIngresar.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
+        buttonRegistroIngresar.setBorderPainted(false);
+        buttonRegistroIngresar.setFocusPainted(false);
+        buttonRegistroIngresar.setFocusable(false);
+        buttonRegistroIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ingresar1ActionPerformed(evt);
+                buttonRegistroIngresarActionPerformed(evt);
             }
         });
 
-        jButton_registrar1.setBackground(new java.awt.Color(58, 99, 81));
-        jButton_registrar1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton_registrar1.setForeground(new java.awt.Color(242, 237, 215));
-        jButton_registrar1.setText("Registrarse");
-        jButton_registrar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        jButton_registrar1.setBorderPainted(false);
-        jButton_registrar1.setFocusPainted(false);
-        jButton_registrar1.setFocusable(false);
+        buttonRegistroRegistro.setBackground(new java.awt.Color(58, 99, 81));
+        buttonRegistroRegistro.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        buttonRegistroRegistro.setForeground(new java.awt.Color(242, 237, 215));
+        buttonRegistroRegistro.setText("Registrarse");
+        buttonRegistroRegistro.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        buttonRegistroRegistro.setBorderPainted(false);
+        buttonRegistroRegistro.setFocusPainted(false);
+        buttonRegistroRegistro.setFocusable(false);
 
-        javax.swing.GroupLayout botton_zone1Layout = new javax.swing.GroupLayout(botton_zone1);
-        botton_zone1.setLayout(botton_zone1Layout);
-        botton_zone1Layout.setHorizontalGroup(
-            botton_zone1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botton_zone1Layout.createSequentialGroup()
+        javax.swing.GroupLayout PANEL_REGITRASE_BOTTONESLayout = new javax.swing.GroupLayout(PANEL_REGITRASE_BOTTONES);
+        PANEL_REGITRASE_BOTTONES.setLayout(PANEL_REGITRASE_BOTTONESLayout);
+        PANEL_REGITRASE_BOTTONESLayout.setHorizontalGroup(
+            PANEL_REGITRASE_BOTTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PANEL_REGITRASE_BOTTONESLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButton_ingresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonRegistroIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButton_registrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonRegistroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        botton_zone1Layout.setVerticalGroup(
-            botton_zone1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botton_zone1Layout.createSequentialGroup()
-                .addGroup(botton_zone1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton_registrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton_ingresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+        PANEL_REGITRASE_BOTTONESLayout.setVerticalGroup(
+            PANEL_REGITRASE_BOTTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_REGITRASE_BOTTONESLayout.createSequentialGroup()
+                .addGroup(PANEL_REGITRASE_BOTTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(buttonRegistroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buttonRegistroIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
-        Registro.add(botton_zone1);
+        Registro.add(PANEL_REGITRASE_BOTTONES);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Perros-pet: ¡Bienvenido!");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 2));
 
@@ -394,29 +414,28 @@ public class Ingreso extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button_verContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verContraseñaActionPerformed
-        verContraseña(input_contraseña);
-    }//GEN-LAST:event_button_verContraseñaActionPerformed
+    private void buttonIngresarVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIngresarVerContraseñaActionPerformed
+        verContraseña(inputIngresarContraseña);
+    }//GEN-LAST:event_buttonIngresarVerContraseñaActionPerformed
 
-    private void jButton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registrarActionPerformed
+    private void bottonIngresarRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonIngresarRegistrarseActionPerformed
         this.remove(Ingreso);
         this.add(Registro);
         validate();
         repaint();
-    }//GEN-LAST:event_jButton_registrarActionPerformed
+    }//GEN-LAST:event_bottonIngresarRegistrarseActionPerformed
 
-    private void button_verContraseñaRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_verContraseñaRActionPerformed
-        verContraseña(input_contraseñaR);
-    }//GEN-LAST:event_button_verContraseñaRActionPerformed
+    private void bottonRegistraseVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonRegistraseVerContraseñaActionPerformed
+        verContraseña(inputRegistraseContraseña);
+    }//GEN-LAST:event_bottonRegistraseVerContraseñaActionPerformed
 
-    private void jButton_ingresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ingresar1ActionPerformed
+    private void buttonRegistroIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRegistroIngresarActionPerformed
         this.remove(Registro);
         this.add(Ingreso);
         validate();
         repaint();
-    }//GEN-LAST:event_jButton_ingresar1ActionPerformed
-
-    
+    }//GEN-LAST:event_buttonRegistroIngresarActionPerformed
+  
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -429,38 +448,42 @@ public class Ingreso extends javax.swing.JFrame {
     private javax.swing.JPanel Form;
     private javax.swing.JPanel Imagen;
     private javax.swing.JPanel Ingreso;
-    private javax.swing.JPanel Pane_documentol;
-    private javax.swing.JPanel Pane_documentol1;
+    private javax.swing.JLabel LABEL_INGRESAR_CONTRASEÑA;
+    private javax.swing.JLabel LABEL_INGRESAR_TITULO;
+    private javax.swing.JLabel LABEL_INGRESAR_USUARIO;
+    private javax.swing.JLabel LABEL_REGISTRARSE_CONTRASEÑA;
+    private javax.swing.JLabel LABEL_REGISTRASE_DOCUMENTO;
+    private javax.swing.JLabel LABEL_REGISTRASE_TIPO_USUARIO;
+    private javax.swing.JLabel LABEL_REGISTRASE_TITULO;
+    private javax.swing.JLabel LABEL_REGISTRASE_USUARIO;
+    private javax.swing.JLabel MENSAJE_INGRESAR;
+    private javax.swing.JPanel PANEL_INGRESAR_BOTONES;
+    private javax.swing.JPanel PANEL_INGRESAR_CONTRASEÑA;
+    private javax.swing.JPanel PANEL_REGISTRARSE_CONTRASEÑA;
+    private javax.swing.JPanel PANEL_REGISTRASE_DOCUMENTO;
+    private javax.swing.JPanel PANEL_REGISTRASE_TIPO_USUARIO;
+    private javax.swing.JPanel PANEL_REGITRASE_BOTTONES;
     private javax.swing.JPanel Registro;
-    private javax.swing.JPanel botton_zone;
-    private javax.swing.JPanel botton_zone1;
-    private javax.swing.JButton button_verContraseña;
-    private javax.swing.JButton button_verContraseñaR;
-    private javax.swing.JPasswordField input_contraseña;
-    private javax.swing.JPasswordField input_contraseñaR;
-    private javax.swing.JTextField input_nombre;
-    private javax.swing.JTextField input_nombreR;
-    private javax.swing.JButton jButton_ingresar;
-    private javax.swing.JButton jButton_ingresar1;
-    private javax.swing.JButton jButton_registrar;
-    private javax.swing.JButton jButton_registrar1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabe_tipoUsuario;
-    private javax.swing.JLabel jLabel_contraseña;
-    private javax.swing.JLabel jLabel_contraseñaR;
-    private javax.swing.JLabel jLabel_documento;
-    private javax.swing.JLabel jLabel_ingresar;
-    private javax.swing.JLabel jLabel_nombre;
-    private javax.swing.JLabel jLabel_nombreR;
-    private javax.swing.JLabel jLabel_registrase;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JPanel panel_contraseña;
-    private javax.swing.JPanel panel_contraseñaR;
+    private javax.swing.JLabel VACIO_01;
+    private javax.swing.JLabel VACIO_02;
+    private javax.swing.JLabel VACIO_03;
+    private javax.swing.JLabel VACIO_04;
+    private javax.swing.JLabel VACIO_06;
+    private javax.swing.JButton bottonIngresarIngresar;
+    private javax.swing.JButton bottonIngresarRegistrarse;
+    private javax.swing.JButton bottonRegistraseVerContraseña;
+    private javax.swing.JButton buttonIngresarVerContraseña;
+    private javax.swing.JButton buttonRegistroIngresar;
+    private javax.swing.JButton buttonRegistroRegistro;
+    private javax.swing.JPasswordField inputIngresarContraseña;
+    private javax.swing.JTextField inputIngresarUsuario;
+    private javax.swing.JTextField inputRegistrarseUsuario;
+    private javax.swing.JPasswordField inputRegistraseContraseña;
+    private javax.swing.JTextField inputRegistroDocumento;
+    private javax.swing.JComboBox inputRegistroTipoDoc;
+    private javax.swing.JComboBox inputRegistroTipoUsuario;
+    private javax.swing.JTextField inputRegistroUsuarioClave;
     private javax.swing.JLabel toby_png;
-    private javax.swing.JLabel vacio;
-    private javax.swing.JLabel vacioR;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
