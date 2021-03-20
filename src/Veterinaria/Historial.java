@@ -7,6 +7,12 @@ public class Historial {
     public String diagnostico;
     public String receta;
 
+    /**
+     * 
+     * @param cita
+     * @param diagnostico
+     * @param receta
+     */
     public Historial(Cita cita, String diagnostico, String receta) {
         this.cita = cita;
         this.diagnostico = diagnostico;

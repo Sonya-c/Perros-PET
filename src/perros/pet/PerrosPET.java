@@ -39,7 +39,7 @@ public class PerrosPET {
         // LEER LOS DATOS DESDE LOS ARCHIVOS Y CREAR LOS OBJETOS
 
         Veterinaria.Usuario usuario1 = new Veterinaria.Usuario("Brett Yang", TipoDocumento.CEDULA, "123", "123");
-        Veterinaria.Usuario usuario2 = new Veterinaria.Usuario("Eddy Chen", TipoDocumento.CEDULA, "666", "666");
+        Veterinaria.Admi usuario2 = new Veterinaria.Admi("Eddy Chen", TipoDocumento.CEDULA, "666", "666");
         Veterinaria.Usuario usuario3 = new Veterinaria.Usuario("Paquita la del barrio", TipoDocumento.CEDULA, "322",
                 "322");
         Veterinario veterinario1 = new Veterinario("Tom Holland", TipoDocumento.CEDULA, "000", "000");
@@ -47,14 +47,15 @@ public class PerrosPET {
 
         Perro perro11 = new Perro(usuario1, "Toby", "NA", "Negro", new Date(2002, 02, 26));
         Perro perro12 = new Perro(usuario1, "luis", "NA", "gris", new Date(2002, 11, 13));
-        Perro perro2 = new Perro(usuario2, "Firulais", "NA", "Marron", new Date(2002, 02, 26));
+        Perro perro2 = new Perro(usuario3, "Firulais", "NA", "Marron", new Date(2002, 02, 26));
 
         boolean servicios1[] = { true, true, true, true, true, true, true };
         Cita cita1 = new Cita(servicios1, new Date(), perro11, usuario1);
-        Cita cita2 = new Cita(servicios1, new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime(), perro11, usuario1);
+        Cita cita2 = new Cita(servicios1, new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime(), perro11,
+                usuario1);
 
         boolean servicios2[] = { true, true, true, true, true, true, true };
-        Cita cita3 = new Cita(servicios2, new Date(), perro11, usuario2);
+        Cita cita3 = new Cita(servicios2, new Date(), perro11, usuario3);
 
         float horas[] = { 1, 1, 0, 1, 0, 1 };
         Factura factura = new Factura(cita1, horas);
