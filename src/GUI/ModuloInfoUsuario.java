@@ -1,15 +1,21 @@
 
 package GUI;
 
-public class ModuloInfoUsuario extends javax.swing.JPanel {
+import Veterinaria.Persona;
 
-    public ModuloInfoUsuario() {
+public class ModuloInfoUsuario extends javax.swing.JPanel {
+    public Persona persona;
+
+    public ModuloInfoUsuario(Persona persona) {
         initComponents();
+        this.persona = persona;
+        inputUsuario.setText(persona.nombreUsuario);
+        inputIngresarContraseña.setText(persona.contraseña);
     }
 
-
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         PANEL_MAIN = new javax.swing.JPanel();
@@ -129,43 +135,39 @@ public class ModuloInfoUsuario extends javax.swing.JPanel {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 704, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PANEL_MAIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 552, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PANEL_MAIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 704, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup().addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(PANEL_MAIN, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 552, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup().addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(PANEL_MAIN, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))));
 
         getAccessibleContext().setAccessibleName("Perfil");
     }// </editor-fold>//GEN-END:initComponents
 
     private void verContraseña(javax.swing.JPasswordField campo) {
-        if (campo.getEchoChar() != (char)0)
-            campo.setEchoChar((char)0);
-        else 
+        if (campo.getEchoChar() != (char) 0)
+            campo.setEchoChar((char) 0);
+        else
             campo.setEchoChar('\u2022');
     }
-    
-    private void buttonIngresarVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIngresarVerContraseñaActionPerformed
+
+    private void buttonIngresarVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonIngresarVerContraseñaActionPerformed
         verContraseña(inputIngresarContraseña);
-    }//GEN-LAST:event_buttonIngresarVerContraseñaActionPerformed
+    }// GEN-LAST:event_buttonIngresarVerContraseñaActionPerformed
 
-    private void bottonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonGuardarCambiosActionPerformed
-        
-    }//GEN-LAST:event_bottonGuardarCambiosActionPerformed
-
+    private void bottonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonGuardarCambiosActionPerformed
+        persona.nombreUsuario = inputUsuario.getText();
+        persona.contraseña = String.valueOf(inputIngresarContraseña.getPassword());
+    }// GEN-LAST:event_bottonGuardarCambiosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LABEL_CONTRASEÑA;

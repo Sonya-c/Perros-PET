@@ -1,16 +1,26 @@
+/*
+ * En el modulo de citas aparecen todas las citas asociadas a a una persona
+ * En el caso de los administradores seran todas las citas
+ */
+
 package GUI;
 
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import Veterinaria.Persona;
 
 public class ModuloCitas extends javax.swing.JPanel {
-    
-    public ModuloCitas() {
+    public Persona persona;
+
+    public ModuloCitas(Persona persona) {
         initComponents();
+        this.persona = persona;
     }
+
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -38,7 +48,8 @@ public class ModuloCitas extends javax.swing.JPanel {
         buttonAñadirCita = new javax.swing.JToggleButton();
 
         FrameDatosCita.setTitle("Perros-Pet: cita");
-        FrameDatosCita.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
+        FrameDatosCita
+                .setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
         FrameDatosCita.setMinimumSize(new java.awt.Dimension(500, 470));
         FrameDatosCita.setResizable(false);
         FrameDatosCita.getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -53,7 +64,8 @@ public class ModuloCitas extends javax.swing.JPanel {
         LabelMascota.setText("Mascota");
 
         inputMascota.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        inputMascota.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mascota 1", "Mascota 2", "Mascota 3", "Mascota 4" }));
+        inputMascota.setModel(new javax.swing.DefaultComboBoxModel(
+                new String[] { "Mascota 1", "Mascota 2", "Mascota 3", "Mascota 4" }));
         inputMascota.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         inputMascota.setFocusable(false);
         inputMascota.setLightWeightPopupEnabled(false);
@@ -63,23 +75,23 @@ public class ModuloCitas extends javax.swing.JPanel {
 
         javax.swing.GroupLayout PANEL_MASCOTALayout = new javax.swing.GroupLayout(PANEL_MASCOTA);
         PANEL_MASCOTA.setLayout(PANEL_MASCOTALayout);
-        PANEL_MASCOTALayout.setHorizontalGroup(
-            PANEL_MASCOTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_MASCOTALayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(PANEL_MASCOTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        PANEL_MASCOTALayout.setHorizontalGroup(PANEL_MASCOTALayout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PANEL_MASCOTALayout.createSequentialGroup().addGap(39, 39, 39)
+                        .addGroup(PANEL_MASCOTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(LabelMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 220,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inputMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 240,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(21, Short.MAX_VALUE)));
         PANEL_MASCOTALayout.setVerticalGroup(
-            PANEL_MASCOTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_MASCOTALayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(LabelMascota, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+                PANEL_MASCOTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+                        javax.swing.GroupLayout.Alignment.TRAILING,
+                        PANEL_MASCOTALayout.createSequentialGroup().addGap(22, 22, 22)
+                                .addComponent(LabelMascota, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(inputMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 47,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -108,26 +120,28 @@ public class ModuloCitas extends javax.swing.JPanel {
 
         javax.swing.GroupLayout PANEL_FECHALayout = new javax.swing.GroupLayout(PANEL_FECHA);
         PANEL_FECHA.setLayout(PANEL_FECHALayout);
-        PANEL_FECHALayout.setHorizontalGroup(
-            PANEL_FECHALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_FECHALayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(PANEL_FECHALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inputFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_FECHALayout.createSequentialGroup()
-                        .addComponent(LabelCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        PANEL_FECHALayout.setVerticalGroup(
-            PANEL_FECHALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_FECHALayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(LabelCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(inputFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
+        PANEL_FECHALayout.setHorizontalGroup(PANEL_FECHALayout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PANEL_FECHALayout.createSequentialGroup().addGap(37, 37, 37)
+                        .addGroup(PANEL_FECHALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(inputFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 240,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                        PANEL_FECHALayout.createSequentialGroup()
+                                                .addComponent(LabelCalendario, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(9, 9, 9)))
+                        .addContainerGap(23, Short.MAX_VALUE)));
+        PANEL_FECHALayout
+                .setVerticalGroup(PANEL_FECHALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                PANEL_FECHALayout.createSequentialGroup().addContainerGap(16, Short.MAX_VALUE)
+                                        .addComponent(LabelCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 27,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(inputFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 213,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(26, 26, 26)));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -249,24 +263,25 @@ public class ModuloCitas extends javax.swing.JPanel {
 
         javax.swing.GroupLayout PANEL_BOTTONESLayout = new javax.swing.GroupLayout(PANEL_BOTTONES);
         PANEL_BOTTONES.setLayout(PANEL_BOTTONESLayout);
-        PANEL_BOTTONESLayout.setHorizontalGroup(
-            PANEL_BOTTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_BOTTONESLayout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
-                .addComponent(inputBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(inputGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122))
-        );
-        PANEL_BOTTONESLayout.setVerticalGroup(
-            PANEL_BOTTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_BOTTONESLayout.createSequentialGroup()
-                .addGap(0, 36, Short.MAX_VALUE)
-                .addGroup(PANEL_BOTTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
-        );
+        PANEL_BOTTONESLayout
+                .setHorizontalGroup(PANEL_BOTTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                PANEL_BOTTONESLayout.createSequentialGroup().addContainerGap(128, Short.MAX_VALUE)
+                                        .addComponent(inputBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 104,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(inputGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 98,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(122, 122, 122)));
+        PANEL_BOTTONESLayout.setVerticalGroup(PANEL_BOTTONESLayout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PANEL_BOTTONESLayout.createSequentialGroup().addGap(0, 36, Short.MAX_VALUE)
+                        .addGroup(PANEL_BOTTONESLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(inputBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inputGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -285,25 +300,17 @@ public class ModuloCitas extends javax.swing.JPanel {
         PANEL_TABLA.setBorder(null);
         PANEL_TABLA.setFocusable(false);
 
-        tablaCitas.getTableHeader().setBackground(new java.awt.Color(58,99,81));
-        tablaCitas.getTableHeader().setForeground(new java.awt.Color(255,255,255));
+        tablaCitas.getTableHeader().setBackground(new java.awt.Color(58, 99, 81));
+        tablaCitas.getTableHeader().setForeground(new java.awt.Color(255, 255, 255));
         tablaCitas.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         tablaCitas.setForeground(new java.awt.Color(57, 50, 50));
         tablaCitas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Servicios", "Fecha", "Mascota"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
+                new Object[][] { { null, null, null, null }, { null, null, null, null } },
+                new String[] { "ID", "Servicios", "Fecha", "Mascota" }) {
+            boolean[] canEdit = new boolean[] { false, false, false, false };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         tablaCitas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -331,31 +338,24 @@ public class ModuloCitas extends javax.swing.JPanel {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
+                .createSequentialGroup().addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonAñadirCita)
-                    .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonAñadirCita)
-                .addGap(22, 22, 22))
-        );
+                        .addComponent(buttonAñadirCita).addComponent(PANEL_TABLA,
+                                javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE)));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addContainerGap(46, Short.MAX_VALUE)
+                        .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18).addComponent(buttonAñadirCita).addGap(22, 22, 22)));
     }// </editor-fold>//GEN-END:initComponents
 
-    
     // Abrir el panel
     private void abrirEditor() {
         FrameDatosCita.setVisible(true);
     }
+
     private void abrirEditor(boolean[] servicios, Date fecha, String mascota) {
         inputMascota.setSelectedItem(mascota);
         inputFecha.setDate(fecha);
@@ -368,19 +368,19 @@ public class ModuloCitas extends javax.swing.JPanel {
         inputServicio_vacunación.setSelected(servicios[6]);
         FrameDatosCita.setVisible(true);
     }
-    private void buttonAñadirCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAñadirCitaActionPerformed
+
+    private void buttonAñadirCitaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonAñadirCitaActionPerformed
         abrirEditor();
-    }//GEN-LAST:event_buttonAñadirCitaActionPerformed
+    }// GEN-LAST:event_buttonAñadirCitaActionPerformed
 
     // Obtener datos de la tabla seleccionada
-    private void tablaCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaCitasMouseClicked
-         JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = source.columnAtPoint( evt.getPoint() );
-            String s=source.getModel().getValueAt(row, column)+"";
-            JOptionPane.showMessageDialog(null, s);
-    }//GEN-LAST:event_tablaCitasMouseClicked
-
+    private void tablaCitasMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tablaCitasMouseClicked
+        JTable source = (JTable) evt.getSource();
+        int row = source.rowAtPoint(evt.getPoint());
+        int column = source.columnAtPoint(evt.getPoint());
+        String s = source.getModel().getValueAt(row, column) + "";
+        JOptionPane.showMessageDialog(null, s);
+    }// GEN-LAST:event_tablaCitasMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame FrameDatosCita;
