@@ -35,20 +35,4 @@ public class PerrosPET {
         ingreso = new Ingreso();
         ingreso.setVisible(true);
     }
-
-    public static void addPersona(Persona persona) {
-        personas.add(persona);
-    }
-
-    public static void addUsuario(Veterinaria.Usuario usuario) {
-        usuarios.add(usuario);
-    }
-
-    public static void addVeterinario(Veterinario veterinario) {
-        veterinarios.add(veterinario);
-    }
-
-    public static void addAdministrador(Admi administrador) {
-        administradores.add(administrador);
-    }
 }

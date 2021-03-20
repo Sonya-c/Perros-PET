@@ -1,16 +1,23 @@
-
+/*
+ * En este modulo esta toda la información del usuario
+ * El usuario puede cambiar su nombre usuario y su contraseña 
+ */
 package GUI;
 
+import javax.swing.JOptionPane;
 import Veterinaria.Persona;
+import perros.pet.PerrosPET;
 
 public class ModuloInfoUsuario extends javax.swing.JPanel {
-    public Persona persona;
+    public Persona usuario;
+    public String nombre;
+    public String contraseña;
 
-    public ModuloInfoUsuario(Persona persona) {
+    public ModuloInfoUsuario(Persona usuario) {
         initComponents();
-        this.persona = persona;
-        inputUsuario.setText(persona.nombreUsuario);
-        inputIngresarContraseña.setText(persona.contraseña);
+        this.usuario = usuario;
+        inputUsuario.setText(usuario.nombreUsuario);
+        inputIngresarContraseña.setText(usuario.contraseña);
     }
 
     @SuppressWarnings("unchecked")
@@ -165,8 +172,38 @@ public class ModuloInfoUsuario extends javax.swing.JPanel {
     }// GEN-LAST:event_buttonIngresarVerContraseñaActionPerformed
 
     private void bottonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonGuardarCambiosActionPerformed
-        persona.nombreUsuario = inputUsuario.getText();
-        persona.contraseña = String.valueOf(inputIngresarContraseña.getPassword());
+        /*
+         * Para guardar los cambios, se debe validar que los campos no esten vacios o
+         * que el nombre de usuario ya exita
+         */
+
+        // Obtenemos los datos desde la interfaz de usuario
+        nombre = inputUsuario.getText();
+        contraseña = String.valueOf(inputIngresarContraseña.getPassword());
+        boolean nombreDisponible = true;
+
+        // Si los campos estan vacios, se mostrara un mensaje
+        if (nombre.length() > 0 && contraseña.length() > 0) {
+
+            // Debemos asegrarnos que el nuevo nombre de usuario no este tomado
+            for (Persona persona : PerrosPET.personas) {
+                // Tenemos que "saltarnos" al usuario actual
+                if (!persona.equals(this.usuario)) {
+                    if ((persona.nombreUsuario).equals(this.nombre)) {
+                        JOptionPane.showMessageDialog(null, "Ya exite un usuario con este nombre");
+                        nombreDisponible = false;
+                    }
+                }
+            }
+
+            if (nombreDisponible) {
+                this.usuario.nombreUsuario = nombre;
+                this.usuario.contraseña = contraseña;
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Nombre ó contraseña vacios");
+        }
     }// GEN-LAST:event_bottonGuardarCambiosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

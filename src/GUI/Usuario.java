@@ -8,8 +8,7 @@ package GUI;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-import Veterinaria.Persona;
-import Veterinaria.TipoUsuario;
+import Veterinaria.*;
 import perros.pet.PerrosPET;
 
 public class Usuario extends javax.swing.JFrame {
