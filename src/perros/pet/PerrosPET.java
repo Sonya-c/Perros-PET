@@ -6,12 +6,11 @@ package perros.pet;
 
 import GUI.*;
 import Veterinaria.*;
-import Veterinaria.Usuario;
-
 import java.util.ArrayList;
 import java.util.Date;
 
 public class PerrosPET {
+    // Intancias de las diferentes clases
     public static ArrayList<Cita> citas;
     public static ArrayList<Persona> personas;
     public static ArrayList<Veterinaria.Veterinario> veterinarios;
@@ -20,10 +19,12 @@ public class PerrosPET {
     public static ArrayList<Veterinaria.Perro> perros;
     public static ArrayList<Veterinaria.Factura> facturas;
     public static ArrayList<Veterinaria.Historial> historiales;
+
     // Interfaz de Usuario
     public static Ingreso ingreso;
 
     public static void main(String[] args) {
+        // Inicialización
         citas = new ArrayList<Cita>();
         personas = new ArrayList<Persona>();
         veterinarios = new ArrayList<Veterinaria.Veterinario>();
@@ -32,6 +33,8 @@ public class PerrosPET {
         perros = new ArrayList<Veterinaria.Perro>();
         facturas = new ArrayList<Veterinaria.Factura>();
         historiales = new ArrayList<Veterinaria.Historial>();
+
+        // LEER LOS DATOS DESDE LOS ARCHIVOS Y CREAR LOS OBJETOS
 
         Veterinaria.Usuario usuario1 = new Veterinaria.Usuario("Brett Yang", TipoDocumento.CEDULA, "123", "123");
         Veterinaria.Usuario usuario2 = new Veterinaria.Usuario("Eddy Chen", TipoDocumento.CEDULA, "666", "666");
@@ -55,6 +58,8 @@ public class PerrosPET {
         Factura factura = new Factura(cita1, horas);
 
         Historial historial = new Historial(cita1, "mmal", "muy mal");
+
+        // Mostrar el ingreso
         ingreso = new Ingreso();
         ingreso.setVisible(true);
     }
