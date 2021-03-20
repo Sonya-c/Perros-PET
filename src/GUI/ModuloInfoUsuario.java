@@ -9,7 +9,7 @@ import Veterinaria.Persona;
 import perros.pet.PerrosPET;
 
 public class ModuloInfoUsuario extends javax.swing.JPanel {
-    public Persona usuario;
+    public Veterinaria.Persona usuario;
     public String nombre;
     public String contraseña;
 
@@ -184,14 +184,15 @@ public class ModuloInfoUsuario extends javax.swing.JPanel {
 
         // Si los campos estan vacios, se mostrara un mensaje
         if (nombre.length() > 0 && contraseña.length() > 0) {
-
-            // Debemos asegrarnos que el nuevo nombre de usuario no este tomado
-            for (Persona persona : PerrosPET.personas) {
-                // Tenemos que "saltarnos" al usuario actual
-                if (!persona.equals(this.usuario)) {
-                    if ((persona.nombreUsuario).equals(this.nombre)) {
-                        JOptionPane.showMessageDialog(null, "Ya exite un usuario con este nombre");
-                        nombreDisponible = false;
+            if (PerrosPET.personas != null) {
+                // Debemos asegrarnos que el nuevo nombre de usuario no este tomado
+                for (Persona persona : PerrosPET.personas) {
+                    // Tenemos que "saltarnos" al usuario actual
+                    if (!persona.equals(this.usuario)) {
+                        if ((persona.nombreUsuario).equals(this.nombre)) {
+                            JOptionPane.showMessageDialog(null, "Ya exite un usuario con este nombre");
+                            nombreDisponible = false;
+                        }
                     }
                 }
             }

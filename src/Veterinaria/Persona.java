@@ -2,6 +2,8 @@ package Veterinaria;
 
 import java.util.ArrayList;
 
+import perros.pet.PerrosPET;
+
 public class Persona {
     // Atributos de la persona
     public String nombreUsuario;
@@ -21,6 +23,9 @@ public class Persona {
         this.documento = documento;
         this.contraseña = contraseña;
         this.tipoUsuario = tipoUsuario;
+
+        misCitas = new ArrayList<Cita>();
+        (PerrosPET.personas).add(this);
     }
 
     public void setNombreUsuario(String nombre) {

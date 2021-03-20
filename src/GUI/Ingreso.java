@@ -15,17 +15,11 @@ import Veterinaria.TipoDocumento;
 import Veterinaria.Usuario;
 import Veterinaria.Veterinario;
 import perros.pet.PerrosPET;
-
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Ingreso extends javax.swing.JFrame {
-        /**
-         *
-         */
-        private static final long serialVersionUID = 3437362377963539626L;
-        public ArrayList<Persona> personas;
-        public Persona user;
+
+        public Veterinaria.Persona user;
 
         // Datos obtenidos desde la Interfaz de usuario
         public String nombreUsuario;
@@ -37,8 +31,6 @@ public class Ingreso extends javax.swing.JFrame {
 
         public Ingreso() {
                 initComponents();
-                this.personas = PerrosPET.personas;
-
                 // Añadir el formulario
                 this.remove(Form);
                 this.add(Ingreso);
@@ -70,9 +62,11 @@ public class Ingreso extends javax.swing.JFrame {
         private Persona buscarPersona(String nombreUsuario) {
                 // Esta función busca a un usuario por el nombre, si lo encuentra, regresará la
                 // persona, sino, regresará null
-                for (Persona persona : personas) {
-                        if ((persona.nombreUsuario).equals(nombreUsuario)) {
-                                return persona;
+                if (PerrosPET.personas != null) {
+                        for (Persona persona : PerrosPET.personas) {
+                                if ((persona.nombreUsuario).equals(nombreUsuario)) {
+                                        return persona;
+                                }
                         }
                 }
                 return null;
@@ -88,8 +82,8 @@ public class Ingreso extends javax.swing.JFrame {
                 int disponibilidad = 0; // Inicialmente el 0, si no hay usuarios
                                         // entonces el nombre y documento están disponibles
 
-                if (personas != null) {
-                        for (Persona persona : personas) {
+                if (PerrosPET.personas != null) {
+                        for (Persona persona : PerrosPET.personas) {
                                 if ((persona.nombreUsuario).equals(nombreUsuario)) {
                                         disponibilidad += 1;
                                 }

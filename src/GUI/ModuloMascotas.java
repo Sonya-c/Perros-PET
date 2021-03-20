@@ -1,4 +1,6 @@
-
+/*
+ * En este modulo el usuario podra acceder a la información de sus mascotas
+ */
 package GUI;
 
 import javax.swing.table.DefaultTableModel;
@@ -16,13 +18,15 @@ public class ModuloMascotas extends javax.swing.JPanel {
         // "Nombre", "Raza", "Color", "Fecha nacimieto"
         String nombre, raza, color, fechaNacimiento;
         DefaultTableModel model = (DefaultTableModel) tablaCitas.getModel();
-        for (Veterinaria.Perro perro : usuario.misPerros) {
-            nombre = perro.nombre;
-            raza = perro.raza;
-            color = perro.color;
-            fechaNacimiento = (perro.fechaNacimiento).toString();
-            Object[] row = { nombre, raza, color, fechaNacimiento };
-            model.addRow(row);
+        if (usuario.misPerros != null) {
+            for (Veterinaria.Perro perro : usuario.misPerros) {
+                nombre = perro.nombre;
+                raza = perro.raza;
+                color = perro.color;
+                fechaNacimiento = (perro.fechaNacimiento).toString();
+                Object[] row = { nombre, raza, color, fechaNacimiento };
+                model.addRow(row);
+            }
         }
     }
 

@@ -33,7 +33,7 @@ public class Usuario extends javax.swing.JFrame {
         switch (persona.tipoUsuario) {
         case VETERINARIO:
             fotoPerfil = "/Resources/doctor.png";
-            modulo3 = new ModuloHistorial();
+            modulo3 = new ModuloHistorial((Veterinaria.Veterinario) persona);
             break;
         case USUARIO:
             fotoPerfil = "/Resources/user.png";

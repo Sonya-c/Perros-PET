@@ -2,6 +2,8 @@ package Veterinaria;
 
 import java.util.Date;
 
+import perros.pet.PerrosPET;
+
 public class Perro {
     public final Usuario dueño;
     public String nombre;
@@ -15,6 +17,9 @@ public class Perro {
         this.raza = raza;
         this.color = color;
         this.fechaNacimiento = fechaNacimiento;
+
+        (PerrosPET.perros).add(this);
+        dueño.addMascota(this);
     }
 
     public void setNombre(String nombre) {

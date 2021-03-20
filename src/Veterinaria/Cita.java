@@ -10,26 +10,32 @@ package Veterinaria;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Cita {
-    public int ID; // Es el identificador de la cita
+import perros.pet.PerrosPET;
 
-    public String[] servicios;
+public class Cita {
+    public boolean[] servicios;
     public Date fecha;
-    public boolean estado; // true si ya es realizo
+    public Factura factura; // true si ya es realizo
 
     public Perro perro;
     public Usuario usuario;
     public Veterinario veterinario;
 
-    // ver documentación del metodo findVeterinario
-    public ArrayList<Veterinario> losVeterinarios;
-
-    public Cita(String servicios[], Date fecha, Perro perro, Usuario usuario) {
+    public Cita(boolean servicios[], Date fecha, Perro perro, Usuario usuario) {
         this.servicios = servicios;
         this.fecha = fecha;
         this.perro = perro;
         this.usuario = usuario;
-        this.losVeterinarios = new ArrayList<Veterinario>();
+
+        (PerrosPET.citas).add(this);
+        (usuario.misCitas).add(this);
+
+        if (findVeterinario())
+            (veterinario.misCitas).add(this);
+
+        for (Admi admi : PerrosPET.administradores) {
+            (admi.misCitas).add(this);
+        }
     }
 
     public void setFecha(Date fecha) {
@@ -40,10 +46,6 @@ public class Cita {
         this.perro = perro;
     }
 
-    public void setServicio(String servicios[]) {
-        this.servicios = servicios;
-    }
-
     public boolean findVeterinario() {
         /*
          * Que se debe hacer: Que veterinarios estan libres en la hora dada Recorrer la
@@ -52,7 +54,7 @@ public class Cita {
          */
 
         // Bucamos en todos los veterinarios
-        for (Veterinario elVeterinario : losVeterinarios) {
+        for (Veterinario elVeterinario : PerrosPET.veterinarios) {
             int sw = 1; // Si es 0 quiere decir que el doctor esta ocupado en esa fecha
 
             if (!(elVeterinario.misCitas).isEmpty()) {

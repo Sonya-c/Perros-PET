@@ -26,12 +26,15 @@ public class ModuloCitas extends javax.swing.JPanel {
         public void setDataTable() {
                 String servicios, fecha, mascota;
                 DefaultTableModel model = (DefaultTableModel) tablaCitas.getModel();
-                for (Cita cita : persona.misCitas) {
-                        servicios = PerrosPET.join(",", cita.servicios);
-                        fecha = (cita.fecha).toString();
-                        mascota = (cita.perro).nombre;
-                        Object[] row = { servicios, fecha, mascota };
-                        model.addRow(row);
+                if (persona.misCitas != null) {
+                        for (Cita cita : persona.misCitas) {
+                                // servicios = PerrosPET.join(",", cita.servicios);
+                                servicios = PerrosPET.parseServicios(cita.servicios);
+                                fecha = (cita.fecha).toString();
+                                mascota = (cita.perro).nombre;
+                                Object[] row = { servicios, fecha, mascota };
+                                model.addRow(row);
+                        }
                 }
         }
 

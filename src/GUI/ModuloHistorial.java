@@ -3,15 +3,34 @@ package GUI;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import Veterinaria.Historial;
 
 public class ModuloHistorial extends javax.swing.JPanel {
+    public Veterinaria.Veterinario veterinario;
 
-    public ModuloHistorial() {
+    public ModuloHistorial(Veterinaria.Veterinario veterinario) {
         initComponents();
+        this.veterinario = veterinario;
+    }
+
+    public void setDataTable() {
+        // "ID", "Mascota", "Fecha", "Diagnostico"
+        String mascota, fecha, diagnostico;
+        DefaultTableModel model = (DefaultTableModel) tablaHistorial.getModel();
+        for (Historial historial : veterinario.misHistoriales) {
+            mascota = (historial.cita).perro.nombre;
+            fecha = (historial.cita).fecha.toString();
+            diagnostico = historial.diagnostico;
+            Object[] row = { mascota, fecha, diagnostico };
+            model.addRow(row);
+        }
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -42,7 +61,8 @@ public class ModuloHistorial extends javax.swing.JPanel {
         FrameDatosHistorial.setTitle("Perros-Pet: cita");
         FrameDatosHistorial.setTitle("Perros-PET: Información mascotas");
         FrameDatosHistorial.setBackground(new java.awt.Color(242, 237, 215));
-        FrameDatosHistorial.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
+        FrameDatosHistorial
+                .setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
         FrameDatosHistorial.setMaximumSize(new java.awt.Dimension(530, 570));
         FrameDatosHistorial.setMinimumSize(new java.awt.Dimension(530, 570));
         FrameDatosHistorial.setResizable(false);
@@ -244,25 +264,17 @@ public class ModuloHistorial extends javax.swing.JPanel {
         PANEL_TABLA.setBorder(null);
         PANEL_TABLA.setFocusable(false);
 
-        tablaHistorial.getTableHeader().setBackground(new java.awt.Color(58,99,81));
-        tablaHistorial.getTableHeader().setForeground(new java.awt.Color(255,255,255));
+        tablaHistorial.getTableHeader().setBackground(new java.awt.Color(58, 99, 81));
+        tablaHistorial.getTableHeader().setForeground(new java.awt.Color(255, 255, 255));
         tablaHistorial.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         tablaHistorial.setForeground(new java.awt.Color(57, 50, 50));
         tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Mascota", "Fecha", "Diagnostico"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
+                new Object[][] { { null, null, null, null }, { null, null, null, null } },
+                new String[] { "ID", "Mascota", "Fecha", "Diagnostico" }) {
+            boolean[] canEdit = new boolean[] { false, false, false, false };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         tablaHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -293,47 +305,39 @@ public class ModuloHistorial extends javax.swing.JPanel {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
+                .createSequentialGroup().addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonAñadirHistorial)
-                    .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonAñadirHistorial)
-                .addGap(22, 22, 22))
-        );
+                        .addComponent(buttonAñadirHistorial).addComponent(PANEL_TABLA,
+                                javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE)));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addContainerGap(46, Short.MAX_VALUE)
+                        .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18).addComponent(buttonAñadirHistorial).addGap(22, 22, 22)));
     }// </editor-fold>//GEN-END:initComponents
 
-    
     // Abrir editor de detallses
     private void abrirEditor() {
         FrameDatosHistorial.setVisible(true);
     }
-    private void tablaHistorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaHistorialMouseClicked
-        JTable source = (JTable)evt.getSource();
-        int row = source.rowAtPoint( evt.getPoint() );
-        int column = source.columnAtPoint( evt.getPoint() );
-        String s=source.getModel().getValueAt(row, column)+"";
+
+    private void tablaHistorialMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tablaHistorialMouseClicked
+        JTable source = (JTable) evt.getSource();
+        int row = source.rowAtPoint(evt.getPoint());
+        int column = source.columnAtPoint(evt.getPoint());
+        String s = source.getModel().getValueAt(row, column) + "";
         JOptionPane.showMessageDialog(null, s);
-    }//GEN-LAST:event_tablaHistorialMouseClicked
+    }// GEN-LAST:event_tablaHistorialMouseClicked
 
-    private void buttonAñadirHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAñadirHistorialActionPerformed
+    private void buttonAñadirHistorialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonAñadirHistorialActionPerformed
         abrirEditor();
-    }//GEN-LAST:event_buttonAñadirHistorialActionPerformed
+    }// GEN-LAST:event_buttonAñadirHistorialActionPerformed
 
-    private void bottonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonGuardarCambiosActionPerformed
+    private void bottonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonGuardarCambiosActionPerformed
 
-    }//GEN-LAST:event_bottonGuardarCambiosActionPerformed
-
+    }// GEN-LAST:event_bottonGuardarCambiosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame FrameDatosHistorial;
@@ -361,5 +365,4 @@ public class ModuloHistorial extends javax.swing.JPanel {
     private javax.swing.JTable tablaHistorial;
     // End of variables declaration//GEN-END:variables
 
-  
 }

@@ -8,6 +8,9 @@ public class Usuario extends Persona {
 
     public Usuario(String nombreUsuario, TipoDocumento tipoDocumento, String documento, String contraseña) {
         super(nombreUsuario, tipoDocumento, documento, contraseña, TipoUsuario.USUARIO);
+
+        (PerrosPET.usuarios).add(this);
+
         misCitas = new ArrayList<Cita>();
         this.misPerros = new ArrayList<Perro>();
         this.getCitas();
