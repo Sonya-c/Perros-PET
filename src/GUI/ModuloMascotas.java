@@ -332,7 +332,7 @@ public class ModuloMascotas extends javax.swing.JPanel {
         String colorPerro = inputColor.getText();
         Date fechaNacimientoPerro = inputDate.getDate();
         
-        if (nombrePerro.length() < 0 && razaPerro.length() < 0 && colorPerro.length() < 0) {
+        if (nombrePerro.length() < 0 || razaPerro.length() < 0 || colorPerro.length() < 0 || fechaNacimientoPerro == null) {
             JOptionPane.showMessageDialog(null, "Algunos campos estan vacios");
         } else {
             if (disponivilidadNombre(nombrePerro)) {
