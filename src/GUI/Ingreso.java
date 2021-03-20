@@ -349,7 +349,11 @@ public class Ingreso extends javax.swing.JFrame {
                 buttonIngresarVerContraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
                 buttonIngresarVerContraseña.setBorderPainted(false);
                 buttonIngresarVerContraseña.setFocusPainted(false);
-                buttonIngresarVerContraseña.addActionListener(evt -> buttonIngresarVerContraseñaActionPerformed(evt));
+                buttonIngresarVerContraseña.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                buttonIngresarVerContraseñaActionPerformed(evt);
+                        }
+                });
                 PANEL_INGRESAR_CONTRASEÑA.add(buttonIngresarVerContraseña);
 
                 Ingreso.add(PANEL_INGRESAR_CONTRASEÑA);
@@ -373,7 +377,11 @@ public class Ingreso extends javax.swing.JFrame {
                 bottonIngresarIngresar.setBorderPainted(false);
                 bottonIngresarIngresar.setFocusPainted(false);
                 bottonIngresarIngresar.setFocusable(false);
-                bottonIngresarIngresar.addActionListener(evt -> bottonIngresarIngresarActionPerformed(evt));
+                bottonIngresarIngresar.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                bottonIngresarIngresarActionPerformed(evt);
+                        }
+                });
 
                 bottonIngresarRegistrarse.setBackground(new java.awt.Color(58, 99, 81));
                 bottonIngresarRegistrarse.setFont(new java.awt.Font(fontName, 0, 14)); // NOI18N
@@ -383,7 +391,11 @@ public class Ingreso extends javax.swing.JFrame {
                 bottonIngresarRegistrarse.setBorderPainted(false);
                 bottonIngresarRegistrarse.setFocusPainted(false);
                 bottonIngresarRegistrarse.setFocusable(false);
-                bottonIngresarRegistrarse.addActionListener(evt -> bottonIngresarRegistrarseActionPerformed(evt));
+                bottonIngresarRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                bottonIngresarRegistrarseActionPerformed(evt);
+                        }
+                });
 
                 javax.swing.GroupLayout PANEL_INGRESAR_BOTONESLayout = new javax.swing.GroupLayout(
                                 PANEL_INGRESAR_BOTONES);
@@ -477,8 +489,11 @@ public class Ingreso extends javax.swing.JFrame {
                 bottonRegistraseVerContraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
                 bottonRegistraseVerContraseña.setBorderPainted(false);
                 bottonRegistraseVerContraseña.setFocusPainted(false);
-                bottonRegistraseVerContraseña
-                                .addActionListener(evt -> bottonRegistraseVerContraseñaActionPerformed(evt));
+                bottonRegistraseVerContraseña.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                bottonRegistraseVerContraseñaActionPerformed(evt);
+                        }
+                });
                 PANEL_REGISTRARSE_CONTRASEÑA.add(bottonRegistraseVerContraseña);
 
                 Registro.add(PANEL_REGISTRARSE_CONTRASEÑA);

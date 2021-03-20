@@ -3,15 +3,13 @@ package Veterinaria;
 import java.util.Date;
 
 public class Perro {
-    public final float ID;
     public final Usuario dueño;
     public String nombre;
     public String raza;
     public String color;
     public Date fechaNacimiento;
 
-    public Perro(float ID, Usuario dueño, String nombre, String raza, String color, Date fechaNacimiento) {
-        this.ID = ID;
+    public Perro(Usuario dueño, String nombre, String raza, String color, Date fechaNacimiento) {
         this.dueño = dueño;
         this.nombre = nombre;
         this.raza = raza;

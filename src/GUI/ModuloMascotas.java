@@ -1,14 +1,35 @@
 
 package GUI;
 
-public class ModuloMascotas extends javax.swing.JPanel {
+import javax.swing.table.DefaultTableModel;
 
-    public ModuloMascotas() {
+public class ModuloMascotas extends javax.swing.JPanel {
+    public Veterinaria.Usuario usuario;
+
+    public ModuloMascotas(Veterinaria.Usuario usuario) {
         initComponents();
+        this.usuario = usuario;
+        setDataTable();
+    }
+
+    public void setDataTable() {
+        // "Nombre", "Raza", "Color", "Fecha nacimieto"
+        String nombre, raza, color, fechaNacimiento;
+        DefaultTableModel model = (DefaultTableModel) tablaCitas.getModel();
+        for (Veterinaria.Perro perro : usuario.misPerros) {
+            nombre = perro.nombre;
+            raza = perro.raza;
+            color = perro.color;
+            fechaNacimiento = (perro.fechaNacimiento).toString();
+            Object[] row = { nombre, raza, color, fechaNacimiento };
+            model.addRow(row);
+        }
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         FrameDatosMascota = new javax.swing.JFrame();
@@ -33,10 +54,9 @@ public class ModuloMascotas extends javax.swing.JPanel {
         FrameDatosMascota.setTitle("Perros-Pet: cita");
         FrameDatosMascota.setTitle("Perros-PET: Información mascotas");
         FrameDatosMascota.setBackground(new java.awt.Color(242, 237, 215));
-        FrameDatosMascota.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
-        FrameDatosMascota.setMaximumSize(new java.awt.Dimension(500, 550));
+        FrameDatosMascota
+                .setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
         FrameDatosMascota.setMinimumSize(new java.awt.Dimension(500, 470));
-        FrameDatosMascota.setPreferredSize(new java.awt.Dimension(500, 550));
         FrameDatosMascota.setResizable(false);
         FrameDatosMascota.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
         FrameDatosMascota.setLocationRelativeTo(null);
@@ -159,25 +179,17 @@ public class ModuloMascotas extends javax.swing.JPanel {
         PANEL_TABLA.setBorder(null);
         PANEL_TABLA.setFocusable(false);
 
-        tablaCitas.getTableHeader().setBackground(new java.awt.Color(58,99,81));
-        tablaCitas.getTableHeader().setForeground(new java.awt.Color(255,255,255));
+        tablaCitas.getTableHeader().setBackground(new java.awt.Color(58, 99, 81));
+        tablaCitas.getTableHeader().setForeground(new java.awt.Color(255, 255, 255));
         tablaCitas.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         tablaCitas.setForeground(new java.awt.Color(57, 50, 50));
-        tablaCitas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Raza", "Color", "Fecha nacimieto"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false, false, false, true
-            };
+        tablaCitas.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {
+
+        }, new String[] { "Nombre", "Raza", "Color", "Fecha nacimieto" }) {
+            boolean[] canEdit = new boolean[] { false, false, false, true };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         tablaCitas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -200,40 +212,33 @@ public class ModuloMascotas extends javax.swing.JPanel {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
+                .createSequentialGroup().addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonAñadirMascota)
-                    .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonAñadirMascota)
-                .addGap(22, 22, 22))
-        );
+                        .addComponent(buttonAñadirMascota).addComponent(PANEL_TABLA,
+                                javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE)));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addContainerGap(46, Short.MAX_VALUE)
+                        .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18).addComponent(buttonAñadirMascota).addGap(22, 22, 22)));
 
         getAccessibleContext().setAccessibleName("Mis mascotas");
     }// </editor-fold>//GEN-END:initComponents
 
     // Abrir el panel
-    private void abrirEditorMacota(){
+    private void abrirEditorMacota() {
         FrameDatosMascota.setVisible(true);
     }
-    private void buttonAñadirMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAñadirMascotaActionPerformed
+
+    private void buttonAñadirMascotaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonAñadirMascotaActionPerformed
         abrirEditorMacota();
-    }//GEN-LAST:event_buttonAñadirMascotaActionPerformed
+    }// GEN-LAST:event_buttonAñadirMascotaActionPerformed
 
-    private void bottonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonGuardarCambiosActionPerformed
+    private void bottonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonGuardarCambiosActionPerformed
 
-    }//GEN-LAST:event_bottonGuardarCambiosActionPerformed
-
+    }// GEN-LAST:event_bottonGuardarCambiosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame FrameDatosMascota;

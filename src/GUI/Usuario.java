@@ -37,7 +37,7 @@ public class Usuario extends javax.swing.JFrame {
             break;
         case USUARIO:
             fotoPerfil = "/Resources/user.png";
-            modulo3 = new ModuloMascotas();
+            modulo3 = new ModuloMascotas((Veterinaria.Usuario) persona);
             break;
         case ADMINISTRADOR:
             fotoPerfil = "/Resources/admi.png";

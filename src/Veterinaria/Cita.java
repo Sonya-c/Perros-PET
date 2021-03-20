@@ -13,7 +13,7 @@ import java.util.Date;
 public class Cita {
     public int ID; // Es el identificador de la cita
 
-    public Servicios[] servicios;
+    public String[] servicios;
     public Date fecha;
     public boolean estado; // true si ya es realizo
 
@@ -24,7 +24,7 @@ public class Cita {
     // ver documentación del metodo findVeterinario
     public ArrayList<Veterinario> losVeterinarios;
 
-    public Cita(Servicios servicios[], Date fecha, Perro perro, Usuario usuario) {
+    public Cita(String servicios[], Date fecha, Perro perro, Usuario usuario) {
         this.servicios = servicios;
         this.fecha = fecha;
         this.perro = perro;
@@ -40,7 +40,7 @@ public class Cita {
         this.perro = perro;
     }
 
-    public void setServicio(Servicios servicios[]) {
+    public void setServicio(String servicios[]) {
         this.servicios = servicios;
     }
 

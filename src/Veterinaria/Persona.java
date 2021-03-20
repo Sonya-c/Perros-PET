@@ -1,12 +1,17 @@
 package Veterinaria;
 
+import java.util.ArrayList;
+
 public class Persona {
+    // Atributos de la persona
     public String nombreUsuario;
     public TipoDocumento tipoDocumento;
     public String documento;
     public String correo;
     public String contraseña;
     public TipoUsuario tipoUsuario;
+
+    public ArrayList<Cita> misCitas;
     public GUI.Usuario UI;
 
     public Persona(String nombreUsuario, TipoDocumento tipoDocumento, String documento, String contraseña,
