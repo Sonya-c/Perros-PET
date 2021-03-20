@@ -4,11 +4,9 @@
  */
 package GUI;
 
-import Veterinaria.Cita;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Veterinaria.Historial;
@@ -35,6 +33,7 @@ public class ModuloHistorial extends javax.swing.JPanel {
         // "ID", "Mascota", "Fecha", "Diagnostico"
         String mascota, fecha, diagnostico;
         DefaultTableModel model = (DefaultTableModel) tablaHistorial.getModel();
+        model.setRowCount(0);
         for (Historial historial : veterinario.misHistoriales) {
             mascota = (historial.cita).perro.nombre;
             fecha = (historial.cita).fecha.toString();
@@ -403,6 +402,7 @@ public class ModuloHistorial extends javax.swing.JPanel {
     // Abrir editor de detallses
     private void abrirEditor() {
         FrameDatosHistorial.setVisible(true);
+        bottonGuardarCambios.setEnabled(false);
     }
 
     private void buttonAñadirHistorialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonAñadirHistorialActionPerformed
