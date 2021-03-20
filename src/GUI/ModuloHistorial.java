@@ -5,10 +5,8 @@
 package GUI;
 
 import java.util.Date;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 import Veterinaria.Historial;
 import javax.swing.DefaultComboBoxModel;
 import perros.pet.PerrosPET;
@@ -16,8 +14,8 @@ import perros.pet.PerrosPET;
 public class ModuloHistorial extends javax.swing.JPanel {
 
     public Veterinaria.Veterinario veterinario;
-    public Date fechaConsulta;
     public Veterinaria.Usuario usuario;
+    public Date fechaConsulta;
     public String cedulaUsuario;
     public String nombrePerro;
     public String fechaCita;
@@ -27,18 +25,20 @@ public class ModuloHistorial extends javax.swing.JPanel {
     public ModuloHistorial(Veterinaria.Veterinario veterinario) {
         initComponents();
         this.veterinario = veterinario;
+        this.setDataTable();
     }
 
     public void setDataTable() {
         // "ID", "Mascota", "Fecha", "Diagnostico"
-        String mascota, fecha, diagnostico;
+        String cedula, mascota, fecha, diagnosticoDoctor;
         DefaultTableModel model = (DefaultTableModel) tablaHistorial.getModel();
         model.setRowCount(0);
         for (Historial historial : veterinario.misHistoriales) {
+            cedula = ((historial.cita).usuario).nombreUsuario;
             mascota = (historial.cita).perro.nombre;
             fecha = (historial.cita).fecha.toString();
-            diagnostico = historial.diagnostico;
-            Object[] row = { mascota, fecha, diagnostico };
+            diagnosticoDoctor = historial.diagnostico;
+            Object[] row = {cedula, mascota, fecha, diagnosticoDoctor};
             model.addRow(row);
         }
     }
@@ -53,15 +53,18 @@ public class ModuloHistorial extends javax.swing.JPanel {
 
     public Veterinaria.Usuario findUser(String cedula) {
         // Se buscara en todos los usuario uno con esta cedula
-        for (Veterinaria.Usuario usuario : PerrosPET.usuarios) {
-            if ((usuario.documento).equals(cedula)) {
-                return usuario;
+        for (Veterinaria.Usuario unUsuario : PerrosPET.usuarios) {
+            if ((unUsuario.documento).equals(cedula)) {
+                return unUsuario;
             }
         }
         return null;
     }
-    
+
     public boolean validarUsuario() {
+        /*
+         * Se comprueba que el usuario exita, que tenga citas y que tena citas programadas
+         */
         usuario = findUser(inputCedula.getText());
         if (usuario == null) {
             JOptionPane.showMessageDialog(null, "Este usuario no exite");
@@ -77,14 +80,17 @@ public class ModuloHistorial extends javax.swing.JPanel {
                 }
                 inputMascota.setModel(model);
             }
-            
-            if ((usuario.misCitas).isEmpty()){
+
+            if ((usuario.misCitas).isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Este usuario no tiene citas programadas");
                 return false;
             } else {
                 DefaultComboBoxModel model = (DefaultComboBoxModel) inputCita.getModel();
+                model.removeAllElements();
                 for (Veterinaria.Cita cita : usuario.misCitas) {
-                    model.addElement((cita.fecha).toString());
+                    if (cita.historial == null) {
+                        model.addElement((cita.fecha).toString());
+                    }
                 }
                 inputCita.setModel(model);
             }
@@ -93,6 +99,7 @@ public class ModuloHistorial extends javax.swing.JPanel {
         repaint();
         return true;
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -123,12 +130,12 @@ public class ModuloHistorial extends javax.swing.JPanel {
         bottonGuardarCambios = new javax.swing.JButton();
         PANEL_TABLA = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
+        buttonAñadirMascota = new javax.swing.JToggleButton();
 
         FrameDatosHistorial.setTitle("Perros-Pet: cita");
         FrameDatosHistorial.setTitle("Perros-PET: Información mascotas");
         FrameDatosHistorial.setBackground(new java.awt.Color(242, 237, 215));
         FrameDatosHistorial.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
-        FrameDatosHistorial.setMaximumSize(new java.awt.Dimension(530, 570));
         FrameDatosHistorial.setMinimumSize(new java.awt.Dimension(530, 570));
         FrameDatosHistorial.setResizable(false);
         FrameDatosHistorial.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -203,7 +210,7 @@ public class ModuloHistorial extends javax.swing.JPanel {
 
         PANEL_CITA.setBackground(new java.awt.Color(242, 237, 215));
         PANEL_CITA.setPreferredSize(new java.awt.Dimension(100, 78));
-        PANEL_CITA.setLayout(new java.awt.GridLayout());
+        PANEL_CITA.setLayout(new java.awt.GridLayout(1, 0));
 
         LABEL_CITA.setBackground(new java.awt.Color(242, 237, 215));
         LABEL_CITA.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
@@ -375,13 +382,25 @@ public class ModuloHistorial extends javax.swing.JPanel {
             tablaHistorial.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        buttonAñadirMascota.setBackground(new java.awt.Color(228, 130, 87));
+        buttonAñadirMascota.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        buttonAñadirMascota.setText("Añadir Historial");
+        buttonAñadirMascota.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        buttonAñadirMascota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAñadirMascotaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonAñadirMascota)
+                    .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -389,15 +408,19 @@ public class ModuloHistorial extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addGap(18, 18, 18)
+                .addComponent(buttonAñadirMascota)
+                .addGap(22, 22, 22))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void bottonBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonBuscarUsuarioActionPerformed
-        // Se buscara a un usuario, si este no exite, se mostrara un panel de advertencia.
-        // Si el usuario si exite, se enviara el nombre de los perros
         bottonGuardarCambios.setEnabled(validarUsuario());
     }//GEN-LAST:event_bottonBuscarUsuarioActionPerformed
+
+    private void buttonAñadirMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAñadirMascotaActionPerformed
+        abrirEditor();
+    }//GEN-LAST:event_buttonAñadirMascotaActionPerformed
 
     // Abrir editor de detallses
     private void abrirEditor() {
@@ -405,25 +428,23 @@ public class ModuloHistorial extends javax.swing.JPanel {
         bottonGuardarCambios.setEnabled(false);
     }
 
-    private void buttonAñadirHistorialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonAñadirHistorialActionPerformed
-        abrirEditor();
-    }// GEN-LAST:event_buttonAñadirHistorialActionPerformed
-
     private void bottonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonGuardarCambiosActionPerformed
-       this.getData();
-       Veterinaria.Cita thisCita = null;
-       for (Veterinaria.Cita cita : usuario.misCitas) {
-           if (((cita.fecha).toString()).equals(fechaCita)) {
-               thisCita = cita;
-           }
-       }
-       if (thisCita == null) {
-           JOptionPane.showMessageDialog(null, "Ocurrio un error");
-       } else {
-           Veterinaria.Historial historial = new Historial(thisCita, diagnostico, prescripción);
-           setDataTable();
-           FrameDatosHistorial.setVisible(false);
-       }
+        // Se guardan los cambios
+        this.getData();
+        Veterinaria.Cita thisCita = null;
+        for (Veterinaria.Cita cita : usuario.misCitas) {
+            if (((cita.fecha).toString()).equals(fechaCita)) {
+                thisCita = cita;
+            }
+        }
+        if (thisCita == null) {
+            JOptionPane.showMessageDialog(null, "Ocurrio un error");
+        } else {
+            Veterinaria.Historial historial = new Historial(thisCita, diagnostico, prescripción);
+            thisCita.historial = historial;
+            setDataTable();
+            FrameDatosHistorial.setVisible(false);
+        }
     }// GEN-LAST:event_bottonGuardarCambiosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -446,6 +467,7 @@ public class ModuloHistorial extends javax.swing.JPanel {
     private javax.swing.JTextArea TEXTAREA_PRESCRIPCIÓN;
     private javax.swing.JToggleButton bottonBuscarUsuario;
     private javax.swing.JButton bottonGuardarCambios;
+    private javax.swing.JToggleButton buttonAñadirMascota;
     private javax.swing.JTextField inputCedula;
     private javax.swing.JComboBox inputCita;
     private javax.swing.JTextField inputDiagnostico;

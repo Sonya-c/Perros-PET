@@ -7,7 +7,9 @@ package perros.pet;
 import GUI.*;
 import Veterinaria.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class PerrosPET {
     // Intancias de las diferentes clases
@@ -25,14 +27,14 @@ public class PerrosPET {
 
     public static void main(String[] args) {
         // Inicialización
-        citas = new ArrayList<Cita>();
-        personas = new ArrayList<Persona>();
-        veterinarios = new ArrayList<Veterinaria.Veterinario>();
-        usuarios = new ArrayList<Veterinaria.Usuario>();
-        administradores = new ArrayList<Veterinaria.Admi>();
-        perros = new ArrayList<Veterinaria.Perro>();
-        facturas = new ArrayList<Veterinaria.Factura>();
-        historiales = new ArrayList<Veterinaria.Historial>();
+        citas = new ArrayList<>();
+        personas = new ArrayList<>();
+        veterinarios = new ArrayList<>();
+        usuarios = new ArrayList<>();
+        administradores = new ArrayList<>();
+        perros = new ArrayList<>();
+        facturas = new ArrayList<>();
+        historiales = new ArrayList<>();
 
         // LEER LOS DATOS DESDE LOS ARCHIVOS Y CREAR LOS OBJETOS
 
@@ -49,7 +51,7 @@ public class PerrosPET {
 
         boolean servicios1[] = { true, true, true, true, true, true, true };
         Cita cita1 = new Cita(servicios1, new Date(), perro11, usuario1);
-        Cita cita2 = new Cita(servicios1, new Date(), perro11, usuario1);
+        Cita cita2 = new Cita(servicios1, new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime(), perro11, usuario1);
 
         boolean servicios2[] = { true, true, true, true, true, true, true };
         Cita cita3 = new Cita(servicios2, new Date(), perro11, usuario2);

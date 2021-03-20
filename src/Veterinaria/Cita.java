@@ -7,7 +7,6 @@
 
 package Veterinaria;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import perros.pet.PerrosPET;
@@ -16,7 +15,8 @@ public class Cita {
     public boolean[] servicios;
     public Date fecha;
     public Factura factura; // true si ya es realizo
-
+    public Historial historial;
+    
     public Perro perro;
     public Usuario usuario;
     public Veterinario veterinario;
