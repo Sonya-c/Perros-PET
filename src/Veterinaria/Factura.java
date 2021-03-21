@@ -21,7 +21,7 @@ public class Factura {
      * La factura se crear una vez que una cita se completa
      * 
      * @param cita          la cita a la que esta asociada la factura
-     * @param horasServicio es una lista de 7 element que representan las horas de
+     * @param horasServicio es una lista de 7 elementos que representan las horas de
      *                      cada servicio
      */
     public Factura(Cita cita, float horasServicio[]) {
