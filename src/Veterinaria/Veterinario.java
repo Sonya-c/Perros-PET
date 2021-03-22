@@ -65,8 +65,10 @@ public class Veterinario extends Persona {
      */
     public boolean disponible(Date fechaCita) {
         for (Cita cita : misCitas) {
-            if ((cita.fecha).compareTo(fechaCita) == 0) {
-                return false;
+            if (cita.existe) {
+                if ((cita.fecha).compareTo(fechaCita) == 0) {
+                    return false;
+                }
             }
         }
         return true;

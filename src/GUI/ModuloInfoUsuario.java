@@ -1,7 +1,3 @@
-/*
- * En este modulo esta toda la información del usuario
- * El usuario puede cambiar su nombre usuario y su contraseña 
- */
 package GUI;
 
 import javax.swing.JOptionPane;
@@ -9,10 +5,16 @@ import Veterinaria.Persona;
 import perros.pet.PerrosPET;
 
 public class ModuloInfoUsuario extends javax.swing.JPanel {
+
     public Veterinaria.Persona usuario;
     public String nombre;
     public String contraseña;
 
+    /**
+     * Se actualiza la información de un usuario
+     * 
+     * @param usuario
+     */
     public ModuloInfoUsuario(Persona usuario) {
         initComponents();
         this.usuario = usuario;

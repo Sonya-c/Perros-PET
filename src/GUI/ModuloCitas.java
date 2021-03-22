@@ -1,10 +1,8 @@
 package GUI;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JTable;
 import Veterinaria.Cita;
 import Veterinaria.Persona;
 import Veterinaria.TipoUsuario;
@@ -51,13 +49,15 @@ public class ModuloCitas extends javax.swing.JPanel {
         if (persona.misCitas != null) {
             // Se buscan entodas las citas de la persona los datos de la tabla
             for (Cita cita : persona.misCitas) {
-                nombreUsuario = cita.usuario.nombreUsuario;
-                servicios = PerrosPET.parseServicios(cita.servicios);
-                fecha = dateFormat.format(cita.fecha);
-                mascota = (cita.perro).nombre;
+                if (cita.existe) {
+                    nombreUsuario = cita.usuario.nombreUsuario;
+                    servicios = PerrosPET.parseServicios(cita.servicios);
+                    fecha = dateFormat.format(cita.fecha);
+                    mascota = (cita.perro).nombre;
 
-                Object[] row = { nombreUsuario, servicios, fecha, mascota };
-                model.addRow(row);
+                    Object[] row = { nombreUsuario, servicios, fecha, mascota };
+                    model.addRow(row);
+                }
             }
         }
         tablaCitas.setModel(model);
@@ -94,7 +94,9 @@ public class ModuloCitas extends javax.swing.JPanel {
         model.removeAllElements();
 
         for (Veterinaria.Perro perro : usuario.misPerros) {
-            model.addElement(perro.nombre);
+            if (perro.existe) {
+                model.addElement(perro.nombre);
+            }
         }
     }
 
@@ -228,8 +230,10 @@ public class ModuloCitas extends javax.swing.JPanel {
      */
     private Veterinaria.Perro encontrarPerro(Veterinaria.Usuario usuario, String nombrePerro) {
         for (Veterinaria.Perro perro : usuario.misPerros) {
-            if ((perro.nombre).equals(nombrePerro)) {
-                return perro;
+            if (perro.existe) {
+                if ((perro.nombre).equals(nombrePerro)) {
+                    return perro;
+                }
             }
         }
         return null;
@@ -244,8 +248,10 @@ public class ModuloCitas extends javax.swing.JPanel {
     private Veterinaria.Cita encontrarCita(String nombreUsuarioCita, String fechaCita) {
         Veterinaria.Usuario unUsuario = encontrarUsuario(nombreUsuarioCita);
         for (Veterinaria.Cita unaCita : unUsuario.misCitas) {
-            if ((dateFormat.format(unaCita.fecha)).equals(fechaCita)) {
-                return unaCita;
+            if (unaCita.existe) {
+                if ((dateFormat.format(unaCita.fecha)).equals(fechaCita)) {
+                    return unaCita;
+                }
             }
         }
         return null;
@@ -260,14 +266,17 @@ public class ModuloCitas extends javax.swing.JPanel {
      */
     private Veterinaria.Cita encontrarCita(Veterinaria.Usuario unUsuario, Date fechaCita) {
         for (Veterinaria.Cita unaCita : unUsuario.misCitas) {
-            if ((unaCita.fecha.compareTo(fechaCita)) == 0) {
-                return unaCita;
+            if (unaCita.existe) {
+                if ((unaCita.fecha.compareTo(fechaCita)) == 0) {
+                    return unaCita;
+                }
             }
         }
         return null;
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -548,6 +557,11 @@ public class ModuloCitas extends javax.swing.JPanel {
         inputBorrar.setEnabled(false);
         inputBorrar.setFocusPainted(false);
         inputBorrar.setFocusable(false);
+        inputBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputBorrarActionPerformed(evt);
+            }
+        });
 
         inputGuardar.setBackground(new java.awt.Color(58, 99, 81));
         inputGuardar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
@@ -658,10 +672,22 @@ public class ModuloCitas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * Elimina la cita seleccionada
+     * 
+     * @param evt
+     */
+    private void inputBorrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_inputBorrarActionPerformed
+        this.cita.eliminar();
+        setDataTable();
+        this.FrameDatosCita.setVisible(false);
+    }// GEN-LAST:event_inputBorrarActionPerformed
+
+    /**
      * Se envian los perros ya seleccionado un usuario
      * 
      * @param evt
      */
+
     private void inputPersonaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_inputPersonaActionPerformed
         for (Veterinaria.Usuario usuario : PerrosPET.usuarios) {
             if ((usuario.nombreUsuario).equals(inputPersona.getSelectedItem())) {
@@ -690,6 +716,7 @@ public class ModuloCitas extends javax.swing.JPanel {
      */
     private void buttonAñadirCitaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonAñadirCitaActionPerformed
         abrirEditor();
+        inputBorrar.setEnabled(false);
     }// GEN-LAST:event_buttonAñadirCitaActionPerformed
 
     /**
@@ -704,7 +731,12 @@ public class ModuloCitas extends javax.swing.JPanel {
 
         cita = encontrarCita(nombreTabla, fechaTabla);
         if (cita != null) {
-            abrirEditor(cita.servicios, cita.fecha, cita.perro.nombre, nombreTabla);
+            if (cita.factura != null || cita.historial != null) {
+                JOptionPane.showMessageDialog(null, "Esta cita ya se llevo a cabo, no se puede eliminar o modificar");
+            } else {
+                abrirEditor(cita.servicios, cita.fecha, cita.perro.nombre, nombreTabla);
+                inputBorrar.setEnabled(true);
+            }
         } else {
             abrirEditor();
         }

@@ -4,18 +4,8 @@ import perros.pet.PerrosPET;
 
 public class Factura {
     public Cita cita;
-    public float totalPagar;
-    public float[] horasServicio;
-
-    // Constante de los precios
-    // CONSULTA, CONTROL, DESPARACITACIÓN, VACUNACIÓN, GUARDERIA, RADIOLOGIA, BAÑO
-    public final float PAGAR_CONSULTA_VETERINARIO = 60000; // por hora
-    public final float PAGAR_CONTROL = 20000; // por hora
-    public final float PAGAR_DESPARACITACIÓN = 80000; // por hora
-    public final float PAGAR_VACUNACION = 70000; // por hora
-    public final float PAGAR_GUARDRIA = 35000; // por dia
-    public final float PAGAR_RADIOLOGIA = 100000; // por hora
-    public final float PAGAR_BAÑO = 12500; // por horas
+    public double totalPagar;
+    public int id;
 
     /**
      * La factura se crear una vez que una cita se completa
@@ -24,10 +14,11 @@ public class Factura {
      * @param horasServicio es una lista de 7 elementos que representan las horas de
      *                      cada servicio
      */
-    public Factura(Cita cita, float horasServicio[]) {
+    public Factura(Cita cita, double totalPagar) {
         this.cita = cita;
-        this.horasServicio = horasServicio;
-
+        this.totalPagar = totalPagar;
+        this.id = PerrosPET.facturas.size() + 1;
+        
         // Agregarle a la cita esta factura
         cita.factura = this;
 

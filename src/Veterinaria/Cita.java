@@ -6,11 +6,14 @@ import perros.pet.PerrosPET;
 public class Cita {
     public boolean[] servicios;
     public Date fecha;
+    public int idFactura;
+    public int idHistorial;
     public Factura factura; // true si ya es realizo
     public Historial historial;
     public Perro perro;
     public Usuario usuario;
     public Veterinario veterinario = null;
+    public boolean existe;
 
     /**
      * Esta clase representa una cita
@@ -26,7 +29,7 @@ public class Cita {
         this.fecha = fecha;
         this.perro = perro;
         this.usuario = usuario;
-
+        this.existe = true;
         // Añadir a la lista principa y a la lista de usuarios esta cita
         (PerrosPET.citas).add(this);
         (usuario.misCitas).add(this);
@@ -66,5 +69,9 @@ public class Cita {
         // Si al final, no encontramos un veterinario que puedar atender en esta fecha,
         // debemos enviar un mensaje de error
         return false;
+    }
+
+    public void eliminar() {
+        existe = false;
     }
 }

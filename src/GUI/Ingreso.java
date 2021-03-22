@@ -87,13 +87,18 @@ public class Ingreso extends javax.swing.JFrame {
 		return null;
 	}
 
+	/**
+	 * Esta función busca a un usuario por nombre y documento. Si el nombre y
+	 * documento están disponibles, regresará 0 Si el nombre no está disponible,
+	 * regresará 1 Si el documento no está disponibles, regresará 2 Si el nombre y
+	 * documento no están disbonibles, regresará 3.
+	 * 
+	 * @param nombreUsuario
+	 * @param documento
+	 * @return disponibilidad
+	 */
 	private int buscarPersona(String nombreUsuario, String documento) {
-		/*
-		 * Esta función busca a un usuario por nombre y documento. Si el nombre y
-		 * documento están disponibles, regresará 0 Si el nombre no está disponible,
-		 * regresará 1 Si el documento no está disponibles, regresará 2 Si el nombre y
-		 * documento no están disbonibles, regresará 3
-		 */
+
 		int disponibilidad = 0; // Inicialmente el 0, si no hay usuarios
 		// entonces el nombre y documento están disponibles
 
@@ -111,14 +116,16 @@ public class Ingreso extends javax.swing.JFrame {
 		return disponibilidad;
 	}
 
+	/**
+	 * Esta función se encarga de buscar el usuario por medio del nombre que se
+	 * ingresó. Si la contraseña ingresada coincide con la de la del usuario
+	 * encontrado, se regresará true Si la contraseña ingresada NO coincide con la
+	 * de la del usuario encontrado, se regresará false Si el usuario ingresado no
+	 * exite se regresara false
+	 * 
+	 * @return si el usuario es valido
+	 */
 	private boolean validarIngreso() {
-		/*
-		 * Esta función se encarga de buscar el usuario por medio del nombre que se
-		 * ingresó. Si la contraseña ingresada coincide con la de la del usuario
-		 * encontrado, se regresará true Si la contraseña ingresada NO coincide con la
-		 * de la del usuario encontrado, se regresará false Si el usuario ingresado no
-		 * exite se regresara false
-		 */
 		ingresoLeerDatos();
 		Persona personaEncontrada = buscarPersona(nombreUsuario);
 		if (personaEncontrada == null) {
@@ -132,13 +139,14 @@ public class Ingreso extends javax.swing.JFrame {
 		}
 	}
 
+	/**
+	 * Esta función se encarga de buscar el usuario por medio del nombre y por
+	 * documento Si este usuario existe, se regresará false. Si el usuario no
+	 * existe, se creará una nueva persona y regresará true
+	 * 
+	 * @return si el registro es valido
+	 */
 	private boolean validarRegistro() {
-		/*
-		 * Esta función se encarga de buscar el usuario por medio del nombre y por
-		 * documento Si este usuario existe, se regresará false. Si el usuario no
-		 * existe, se creará una nueva persona y regresará true
-		 */
-
 		registroLeerDatos();
 		String mensaje = "";
 
@@ -186,11 +194,13 @@ public class Ingreso extends javax.swing.JFrame {
 		return false;
 	}
 
+	/**
+	 * Dependiendo del tipo de usuario, la variable user tipo perona sera
+	 * inicializada Los datos de la pantalla deben ser leídos para
+	 * 
+	 * @return persona
+	 */
 	private Persona crearPersona() {
-		/*
-		 * Dependiendo del tipo de usuario, la variable user tipo perona sera
-		 * inicializada Los datos de la pantalla deben ser leídos para
-		 */
 		registroLeerDatos();
 
 		// Por la interfaz de usuario los datos son recibidos como String, asi que
@@ -237,8 +247,12 @@ public class Ingreso extends javax.swing.JFrame {
 		return null;
 	}
 
+	/**
+	 * Permite mostrar la contraseña en la interfaz
+	 * 
+	 * @param campo
+	 */
 	private void verContraseña(javax.swing.JPasswordField campo) {
-		// Opción para ver las contraseñas
 		if (campo.getEchoChar() != (char) 0) {
 			campo.setEchoChar((char) 0);
 		} else {
@@ -246,7 +260,6 @@ public class Ingreso extends javax.swing.JFrame {
 		}
 	}
 
-	// ACCIONES
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
@@ -668,7 +681,11 @@ public class Ingreso extends javax.swing.JFrame {
 		setLocationRelativeTo(null);
 	}// </editor-fold>//GEN-END:initComponents
 
-	// ABRIR PROGRAMA: Validar registro
+	/**
+	 * Cuando el usuario hace click en el boton de registrarse (en el panel de
+	 * registro) se validara si los datos del registro son validos. Si este e el
+	 * caso, se va a cerrar la pantalla de ingreso y se abira el programa prncipal
+	 */
 	private void buttonRegistroRegistroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonRegistroRegistroActionPerformed
 		if (validarRegistro()) {
 			crearPersona();
@@ -676,7 +693,12 @@ public class Ingreso extends javax.swing.JFrame {
 		}
 	}// GEN-LAST:event_buttonRegistroRegistroActionPerformed
 
-	// ABRIR PROGRAMA: Validar ingreso
+	/**
+	 * Cuando el usuario hace click en el boton de ingresar (en el panel de
+	 * ingresar) se validara el regristro y se abrira el programa principal. Si el
+	 * registro no es valido, se mostrara un mensaje emergente mostrando que hubo un
+	 * error en a contraseña o el usuario
+	 */
 	private void bottonIngresarIngresarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonIngresarIngresarActionPerformed
 		if (validarIngreso()) {
 			this.user = buscarPersona(nombreUsuario);
@@ -686,12 +708,16 @@ public class Ingreso extends javax.swing.JFrame {
 		}
 	}// GEN-LAST:event_bottonIngresarIngresarActionPerformed
 
-	// VER CONTRASEÑA
+	/**
+	 * Permite ve la contraseña en la pantalla de ingreso
+	 */
 	private void buttonIngresarVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonIngresarVerContraseñaActionPerformed
 		verContraseña(inputIngresarContraseña);
 	}// GEN-LAST:event_buttonIngresarVerContraseñaActionPerformed
 
-	// MOVERSE DE INGRESO A REGISTRO
+	/**
+	 * Permite ve moverse de la pantalla de ingreso a la pantalla de registro
+	 */
 	private void bottonIngresarRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonIngresarRegistrarseActionPerformed
 		this.remove(Ingreso);
 		this.add(Registro);
@@ -699,12 +725,16 @@ public class Ingreso extends javax.swing.JFrame {
 		repaint();
 	}// GEN-LAST:event_bottonIngresarRegistrarseActionPerformed
 
-	// VER CONTRASEÑA
+	/**
+	 * Permite ve la contraseña en la pantalla de ingreso a la registro
+	 */
 	private void bottonRegistraseVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonRegistraseVerContraseñaActionPerformed
 		verContraseña(inputRegistraseContraseña);
 	}// GEN-LAST:event_bottonRegistraseVerContraseñaActionPerformed
 
-	// MOVERSE DE REGISTRO A INGRESO
+	/**
+	 * Permite moverse de la panatala de registro a la de ingreso
+	 */
 	private void buttonRegistroIngresarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonRegistroIngresarActionPerformed
 		this.remove(Registro);
 		this.add(Ingreso);

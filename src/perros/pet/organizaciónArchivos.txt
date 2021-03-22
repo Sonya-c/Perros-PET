@@ -1,0 +1,34 @@
+Se decidio por una organización secuencial
+
+ARCHIVO
+    TipoDocumento   String
+    Documento       String
+    correo          String
+    contraseña      String
+    TipoUsuario     String
+
+PERRO
+    nombreDueño     String
+    nombrePerro     String
+    raza            String
+    color           String
+    fechaNacimiento String
+
+CITA
+    Servicios       String[] // 0 false, 1 true
+    Fecha           String
+    factura         int // es el id de la factura      
+    historial       int // es el id del historial
+    nombrePerro     string
+    nombreUsuario   string
+    veterinario     string
+
+HISTORIAL
+    Diagnostico     string
+    receta          string
+    Id              int
+
+FACTURA
+    id              int
+    totalPagar      double
+    

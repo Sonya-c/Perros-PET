@@ -1,24 +1,29 @@
-/*
- * En este modulo el usuario podra acceder a la información de sus mascotas
- */
 package GUI;
 
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 import perros.pet.PerrosPET;
 
 public class ModuloMascotas extends javax.swing.JPanel {
+
     public Veterinaria.Usuario usuario;
     public Veterinaria.Perro perro;
 
+    /**
+     * Moduo que contiene la información de las mascotas
+     * 
+     * @param usuario
+     */
     public ModuloMascotas(Veterinaria.Usuario usuario) {
         initComponents();
         this.usuario = usuario;
         setDataTable();
     }
 
+    /**
+     * Busca la información de los perros del usuario y la envia a la tabla
+     */
     public void setDataTable() {
         // "Nombre", "Raza", "Color", "Fecha nacimieto"
         String nombre, raza, color, fechaNacimiento;
@@ -26,12 +31,14 @@ public class ModuloMascotas extends javax.swing.JPanel {
         model.setRowCount(0);
         if (usuario.misPerros != null) {
             for (Veterinaria.Perro perro : usuario.misPerros) {
-                nombre = perro.nombre;
-                raza = perro.raza;
-                color = perro.color;
-                fechaNacimiento = (perro.fechaNacimiento).toString();
-                Object[] row = { nombre, raza, color, fechaNacimiento };
-                model.addRow(row);
+                if (perro.existe) {
+                    nombre = perro.nombre;
+                    raza = perro.raza;
+                    color = perro.color;
+                    fechaNacimiento = (perro.fechaNacimiento).toString();
+                    Object[] row = { nombre, raza, color, fechaNacimiento };
+                    model.addRow(row);
+                }
             }
         }
     }
@@ -262,6 +269,10 @@ public class ModuloMascotas extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("Mis mascotas");
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Al cliclear una fila de la tabla, se busca la mascota (que pertecene a ese
+     * usuario) con ese nombre y se abree el editor de datos
+     */
     private void tablaCitasMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tablaCitasMouseClicked
         int row = tablaCitas.rowAtPoint(evt.getPoint());
         String nombrePerro = tablaCitas.getModel().getValueAt(row, 0) + "";
@@ -269,22 +280,30 @@ public class ModuloMascotas extends javax.swing.JPanel {
         abrirEditorMacota(perro);
     }// GEN-LAST:event_tablaCitasMouseClicked
 
+    /**
+     * Se elimina un perro ya creado
+     */
     private void bottonEliminarPerroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonEliminarPerroActionPerformed
-        if (perro != null) {
-            (usuario.misPerros).remove(this.perro);
-            (PerrosPET.perros).remove(this.perro);
-        }
+        this.perro.eliminar();
+        this.perro = null;
         FrameDatosMascota.setVisible(false);
         setDataTable();
     }// GEN-LAST:event_bottonEliminarPerroActionPerformed
 
-    // Abrir el panel
+    /**
+     * Se piden los datos de una nueva mascota
+     */
     private void abrirEditorMacota() {
         FrameDatosMascota.setVisible(true);
         perro = null;
         bottonEliminarPerro.setEnabled(false);
     }
 
+    /**
+     * Se editan los datos de una mascota ya exitente
+     * 
+     * @param perro
+     */
     private void abrirEditorMacota(Veterinaria.Perro perro) {
         inputNombre.setText(perro.nombre);
         inputRaza.setText(perro.raza);
@@ -294,21 +313,27 @@ public class ModuloMascotas extends javax.swing.JPanel {
         bottonEliminarPerro.setEnabled(true);
     }
 
+    /**
+     * Se busca un perro del usuairo por su nombre
+     */
     private Veterinaria.Perro buscarPerro(String nombrePerro) {
         for (Veterinaria.Perro perro : usuario.misPerros) {
-            if ((perro.nombre).equals(nombrePerro)) {
-                return perro;
+            if (perro.existe) {
+                if ((perro.nombre).equals(nombrePerro)) {
+                    return perro;
+                }
             }
         }
         return null;
     }
 
+    /**
+     * Se confirma si un nombre esta disponible
+     */
     private boolean disponivilidadNombre(String nombrePerro) {
         for (Veterinaria.Perro unPerro : usuario.misPerros) {
-            if ((unPerro.nombre).equals(nombrePerro)) {
-                if (unPerro == null) {
-                    return false;
-                } else {
+            if (unPerro.existe) {
+                if ((unPerro.nombre).equals(nombrePerro)) {
                     if (!(unPerro).equals(this.perro)) {
                         return false;
                     }
@@ -318,6 +343,9 @@ public class ModuloMascotas extends javax.swing.JPanel {
         return true;
     }
 
+    /**
+     * Se crea o actualiza un perro desde la información que se ve en pantalla
+     */
     private void crearPerro() {
         String nombrePerro = inputNombre.getText();
         String razaPerro = inputRaza.getText();

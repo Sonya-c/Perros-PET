@@ -9,6 +9,7 @@ public class Perro {
     public String raza;
     public String color;
     public Date fechaNacimiento;
+    public boolean existe;
 
     /**
      * El perro esta ligado a un usuario
@@ -26,10 +27,25 @@ public class Perro {
         this.raza = raza;
         this.color = color;
         this.fechaNacimiento = fechaNacimiento;
+        this.existe = true;
 
         // Añadir el perro a la lista principal y a la lista de perros del respectivo
         // usuario
         (PerrosPET.perros).add(this);
         (dueño.misPerros).add(this);
+    }
+
+    /**
+     * Cambia el estado de existencia de este perro y de las citas asociadas a este
+     */
+    public void eliminar() {
+        existe = false;
+
+        // Eliminar las citas asociadas a este perro
+        for (Cita cita : dueño.misCitas) {
+            if ((cita.perro).equals(this)) {
+                cita.existe = false;
+            }
+        }
     }
 }

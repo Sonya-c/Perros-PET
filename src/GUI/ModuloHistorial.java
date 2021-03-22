@@ -1,7 +1,3 @@
-/*
- * Este es el moudulo del historial del veterinario
- * El puede crear un nueva historia clinica de un paciente
- */
 package GUI;
 
 import java.util.Date;
@@ -38,7 +34,7 @@ public class ModuloHistorial extends javax.swing.JPanel {
             mascota = (historial.cita).perro.nombre;
             fecha = (historial.cita).fecha.toString();
             diagnosticoDoctor = historial.diagnostico;
-            Object[] row = {cedula, mascota, fecha, diagnosticoDoctor};
+            Object[] row = { cedula, mascota, fecha, diagnosticoDoctor };
             model.addRow(row);
         }
     }
@@ -63,7 +59,8 @@ public class ModuloHistorial extends javax.swing.JPanel {
 
     public boolean validarUsuario() {
         /*
-         * Se comprueba que el usuario exita, que tenga citas y que tena citas programadas
+         * Se comprueba que el usuario exita, que tenga citas y que tena citas
+         * programadas
          */
         usuario = findUser(inputCedula.getText());
         if (usuario == null) {
@@ -102,7 +99,8 @@ public class ModuloHistorial extends javax.swing.JPanel {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -135,7 +133,8 @@ public class ModuloHistorial extends javax.swing.JPanel {
         FrameDatosHistorial.setTitle("Perros-Pet: cita");
         FrameDatosHistorial.setTitle("Perros-PET: Información mascotas");
         FrameDatosHistorial.setBackground(new java.awt.Color(242, 237, 215));
-        FrameDatosHistorial.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
+        FrameDatosHistorial
+                .setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
         FrameDatosHistorial.setMinimumSize(new java.awt.Dimension(530, 570));
         FrameDatosHistorial.setResizable(false);
         FrameDatosHistorial.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -181,7 +180,8 @@ public class ModuloHistorial extends javax.swing.JPanel {
         PANEL_DOCUMENTO.add(LABEL_DOCUMENTO);
 
         PANEL_DDOCUMENTO_DOCyBUSCAR.setBackground(new java.awt.Color(255, 255, 255));
-        PANEL_DDOCUMENTO_DOCyBUSCAR.setLayout(new javax.swing.BoxLayout(PANEL_DDOCUMENTO_DOCyBUSCAR, javax.swing.BoxLayout.LINE_AXIS));
+        PANEL_DDOCUMENTO_DOCyBUSCAR
+                .setLayout(new javax.swing.BoxLayout(PANEL_DDOCUMENTO_DOCyBUSCAR, javax.swing.BoxLayout.LINE_AXIS));
 
         inputCedula.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         inputCedula.setText("1001822184");
@@ -351,24 +351,17 @@ public class ModuloHistorial extends javax.swing.JPanel {
         PANEL_TABLA.setBorder(null);
         PANEL_TABLA.setFocusable(false);
 
-        tablaHistorial.getTableHeader().setBackground(new java.awt.Color(58,99,81));
-        tablaHistorial.getTableHeader().setForeground(new java.awt.Color(255,255,255));
+        tablaHistorial.getTableHeader().setBackground(new java.awt.Color(58, 99, 81));
+        tablaHistorial.getTableHeader().setForeground(new java.awt.Color(255, 255, 255));
         tablaHistorial.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         tablaHistorial.setForeground(new java.awt.Color(57, 50, 50));
-        tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {
 
-            },
-            new String [] {
-                "Cedula", "Mascota", "Fecha", "Diagnostico"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
+        }, new String[] { "Cedula", "Mascota", "Fecha", "Diagnostico" }) {
+            boolean[] canEdit = new boolean[] { false, false, false, false };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         tablaHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -394,33 +387,26 @@ public class ModuloHistorial extends javax.swing.JPanel {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
+                .createSequentialGroup().addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonAñadirMascota)
-                    .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonAñadirMascota)
-                .addGap(22, 22, 22))
-        );
+                        .addComponent(buttonAñadirMascota).addComponent(PANEL_TABLA,
+                                javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE)));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addContainerGap(46, Short.MAX_VALUE)
+                        .addComponent(PANEL_TABLA, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18).addComponent(buttonAñadirMascota).addGap(22, 22, 22)));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bottonBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonBuscarUsuarioActionPerformed
+    private void bottonBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bottonBuscarUsuarioActionPerformed
         bottonGuardarCambios.setEnabled(validarUsuario());
-    }//GEN-LAST:event_bottonBuscarUsuarioActionPerformed
+    }// GEN-LAST:event_bottonBuscarUsuarioActionPerformed
 
-    private void buttonAñadirMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAñadirMascotaActionPerformed
+    private void buttonAñadirMascotaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonAñadirMascotaActionPerformed
         abrirEditor();
-    }//GEN-LAST:event_buttonAñadirMascotaActionPerformed
+    }// GEN-LAST:event_buttonAñadirMascotaActionPerformed
 
     // Abrir editor de detallses
     private void abrirEditor() {

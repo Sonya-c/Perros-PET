@@ -56,12 +56,12 @@ public class PerrosPET {
 
         boolean servicios2[] = { true, true, true, true, true, true, true };
         Cita cita3 = new Cita(servicios2, new Date(), perro11, usuario3);
-
-        float horas[] = { 1, 1, 0, 1, 0, 1 };
-        Factura factura = new Factura(cita1, horas);
+        
+        Factura factura = new Factura(cita1, 123);
 
         Historial historial = new Historial(cita1, "mmal", "muy mal");
-
+        
+        System.out.println(facturas.size());
         // Mostrar el ingreso
         ingreso = new Ingreso();
         ingreso.setVisible(true);

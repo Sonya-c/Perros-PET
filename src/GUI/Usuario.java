@@ -1,26 +1,26 @@
-/*
- * Esta es la interfaz para los usuarios en general.
- * En todo caso el usario puede acceder a su información y sus citas (el administrador puede ver todas las citas)
- * Depediendo del usuario, se generará una imagen de perfil diferentes y un modulo 3 diferentes
-*/
 package GUI;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-
 import Veterinaria.*;
+import javax.swing.JOptionPane;
 import perros.pet.PerrosPET;
 
 public class Usuario extends javax.swing.JFrame {
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+
     public javax.swing.JPanel modulo1; // Información de usuario
     public javax.swing.JPanel modulo2; // Modulo de citas
     public javax.swing.JPanel modulo3; // Depende del tipo de usuario
     public String fotoPerfil;
 
+    /**
+     * Esta es la interfaz para los usuarios en general. En todo caso el usario
+     * puede acceder a su información y sus citas (el administrador puede ver todas
+     * las citas) Depediendo del usuario, se generará una imagen de perfil
+     * diferentes y un modulo 3 diferentes
+     * 
+     * @parm Persona es la persona que han ingresado al programa
+     */
     public Usuario(Persona persona) {
         initComponents();
         modulo1 = new ModuloInfoUsuario(persona);
@@ -67,9 +67,8 @@ public class Usuario extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        String fontName = "Candara";
 
         PANEL_NAV = new javax.swing.JPanel();
         IMG_PEFIL = new javax.swing.JLabel();
@@ -79,13 +78,18 @@ public class Usuario extends javax.swing.JFrame {
         BUTTON_SALIR = new javax.swing.JButton();
         PANEL_MAIN = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Perros-Pet");
         setBackground(new java.awt.Color(57, 50, 50));
         setFocusable(false);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo.png")).getImage());
         setMaximumSize(new java.awt.Dimension(904, 552));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         PANEL_NAV.setBackground(new java.awt.Color(57, 50, 50));
@@ -100,7 +104,7 @@ public class Usuario extends javax.swing.JFrame {
         PANEL_NAV.add(IMG_PEFIL);
 
         BUTTON_MODULO1.setBackground(new java.awt.Color(57, 50, 50));
-        BUTTON_MODULO1.setFont(new java.awt.Font(fontName, 0, 14)); // NOI18N
+        BUTTON_MODULO1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         BUTTON_MODULO1.setForeground(new java.awt.Color(242, 237, 215));
         BUTTON_MODULO1.setText("Modulo 2");
         BUTTON_MODULO1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
@@ -120,7 +124,7 @@ public class Usuario extends javax.swing.JFrame {
         PANEL_NAV.add(BUTTON_MODULO1);
 
         BUTTON_MODULO2.setBackground(new java.awt.Color(57, 50, 50));
-        BUTTON_MODULO2.setFont(new java.awt.Font(fontName, 0, 14)); // NOI18N
+        BUTTON_MODULO2.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         BUTTON_MODULO2.setForeground(new java.awt.Color(242, 237, 215));
         BUTTON_MODULO2.setText("Modulo 1");
         BUTTON_MODULO2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
@@ -139,7 +143,7 @@ public class Usuario extends javax.swing.JFrame {
         PANEL_NAV.add(BUTTON_MODULO2);
 
         BUTTON_MODULO3.setBackground(new java.awt.Color(57, 50, 50));
-        BUTTON_MODULO3.setFont(new java.awt.Font(fontName, 0, 14)); // NOI18N
+        BUTTON_MODULO3.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         BUTTON_MODULO3.setForeground(new java.awt.Color(242, 237, 215));
         BUTTON_MODULO3.setText("Modulo 3");
         BUTTON_MODULO3.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
@@ -158,7 +162,7 @@ public class Usuario extends javax.swing.JFrame {
         PANEL_NAV.add(BUTTON_MODULO3);
 
         BUTTON_SALIR.setBackground(new java.awt.Color(57, 50, 50));
-        BUTTON_SALIR.setFont(new java.awt.Font(fontName, 0, 14)); // NOI18N
+        BUTTON_SALIR.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         BUTTON_SALIR.setForeground(new java.awt.Color(242, 237, 215));
         BUTTON_SALIR.setText("Salir");
         BUTTON_SALIR.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 30, 0, 30));
@@ -184,10 +188,14 @@ public class Usuario extends javax.swing.JFrame {
 
         javax.swing.GroupLayout PANEL_MAINLayout = new javax.swing.GroupLayout(PANEL_MAIN);
         PANEL_MAIN.setLayout(PANEL_MAINLayout);
-        PANEL_MAINLayout.setHorizontalGroup(PANEL_MAINLayout
-                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 704, Short.MAX_VALUE));
-        PANEL_MAINLayout.setVerticalGroup(PANEL_MAINLayout
-                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 552, Short.MAX_VALUE));
+        PANEL_MAINLayout.setHorizontalGroup(
+            PANEL_MAINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 704, Short.MAX_VALUE)
+        );
+        PANEL_MAINLayout.setVerticalGroup(
+            PANEL_MAINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 552, Short.MAX_VALUE)
+        );
 
         getContentPane().add(PANEL_MAIN, new java.awt.GridBagConstraints());
 
@@ -195,7 +203,17 @@ public class Usuario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    // Moverse entre los distintos paneles
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Loader l = new Loader();
+        this.setEnabled(false);
+        l.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
+
+    // MOVERSE ENTRE LOS DIFERENTES PANELES
+
+    /**
+     * Moverse al modulo 1 (información de usuario)
+     */
     private void BUTTON_MODULO1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BUTTON_MODULO1ActionPerformed
         this.remove(modulo2);
         this.remove(modulo3);
@@ -204,6 +222,9 @@ public class Usuario extends javax.swing.JFrame {
         repaint();
     }// GEN-LAST:event_BUTTON_MODULO1ActionPerformed
 
+    /**
+     * Moverse a modulo 2 (panel de citas)
+     */
     private void BUTTON_MODULO2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BUTTON_MODULO2ActionPerformed
         this.remove(modulo1);
         this.remove(modulo3);
@@ -212,6 +233,9 @@ public class Usuario extends javax.swing.JFrame {
         repaint();
     }// GEN-LAST:event_BUTTON_MODULO2ActionPerformed
 
+    /**
+     * Moverse al panel 3(depende del usuario)
+     */
     private void BUTTON_MODULO3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BUTTON_MODULO3ActionPerformed
         this.remove(modulo1);
         this.remove(modulo2);
@@ -220,6 +244,11 @@ public class Usuario extends javax.swing.JFrame {
         repaint();
     }// GEN-LAST:event_BUTTON_MODULO3ActionPerformed
 
+    /**
+     * Regresar a la pantalla de ingreso / registro
+     * 
+     * @param evt
+     */
     private void BUTTON_SALIRActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BUTTON_SALIRActionPerformed
         this.setVisible(false);
         (PerrosPET.ingreso).setVisible(true);
