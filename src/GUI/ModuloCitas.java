@@ -51,7 +51,7 @@ public class ModuloCitas extends javax.swing.JPanel {
             for (Cita cita : persona.misCitas) {
                 if (cita.existe) {
                     nombreUsuario = cita.usuario.nombreUsuario;
-                    servicios = PerrosPET.parseServicios(cita.servicios);
+                    servicios = parseServicios(cita.servicios);
                     fecha = dateFormat.format(cita.fecha);
                     mascota = (cita.perro).nombre;
 
@@ -61,6 +61,18 @@ public class ModuloCitas extends javax.swing.JPanel {
             }
         }
         tablaCitas.setModel(model);
+    }
+
+    public String parseServicios(boolean servicios[]) {
+        String[] serviciosNombre = { "Consulta veterinario", "Control", "Desparasitación", "Vacunación", "Guarderia",
+                "Radiologia", "Baño" };
+        String resultado = "";
+        for (int i = 0; i < 7; i++) {
+            if (servicios[i])
+                resultado += serviciosNombre[i] + ", ";
+        }
+
+        return resultado;
     }
 
     /**
@@ -769,3 +781,5 @@ public class ModuloCitas extends javax.swing.JPanel {
     private javax.swing.JTable tablaCitas;
     // End of variables declaration//GEN-END:variables
 }
+
+   

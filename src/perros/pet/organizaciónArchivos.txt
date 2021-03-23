@@ -1,11 +1,12 @@
 Se decidio por una organización secuencial
 
-ARCHIVO
+PERSONA
+    Nombre          string
+    TipoUsuario     String
     TipoDocumento   String
     Documento       String
-    correo          String
     contraseña      String
-    TipoUsuario     String
+    
 
 PERRO
     nombreDueño     String

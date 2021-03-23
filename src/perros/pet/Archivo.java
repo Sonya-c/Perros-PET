@@ -43,7 +43,7 @@ public class Archivo {
 	}
 
 	/**
-	 * Recibe la lista de objetos y actualiza el archivo (secuencial) Si el elemento
+	 * Recibe la lista de objetos y actualiza el archivo (secuencial) si el elemento
 	 * es null
 	 */
 	public void actualizarRegistro() {

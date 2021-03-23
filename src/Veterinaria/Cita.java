@@ -45,6 +45,25 @@ public class Cita {
         }
     }
 
+    public Cita(boolean servicios[], Date fecha, Perro perro, Usuario usuario, Veterinario veterinario) {
+        this.servicios = servicios;
+        this.fecha = fecha;
+        this.perro = perro;
+        this.usuario = usuario;
+        this.veterinario = veterinario;
+        this.existe = true;
+
+        // Añadir a la lista principa y a la lista de usuarios esta cita
+        (PerrosPET.citas).add(this);
+        (usuario.misCitas).add(this);
+        (veterinario.misCitas).add(this);
+
+        // Agregarle esta cita a todos los administradores
+        for (Admi admi : PerrosPET.administradores) {
+            (admi.misCitas).add(this);
+        }
+    }
+
     /**
      * Que se debe hacer: Que veterinarios estan libres en la hora dada Recorrer la
      * lista de doctores y por cada doctor buscar que citas tiene programadas. Si no

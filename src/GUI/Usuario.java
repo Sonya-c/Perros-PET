@@ -67,7 +67,8 @@ public class Usuario extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         PANEL_NAV = new javax.swing.JPanel();
@@ -188,14 +189,10 @@ public class Usuario extends javax.swing.JFrame {
 
         javax.swing.GroupLayout PANEL_MAINLayout = new javax.swing.GroupLayout(PANEL_MAIN);
         PANEL_MAIN.setLayout(PANEL_MAINLayout);
-        PANEL_MAINLayout.setHorizontalGroup(
-            PANEL_MAINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 704, Short.MAX_VALUE)
-        );
-        PANEL_MAINLayout.setVerticalGroup(
-            PANEL_MAINLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 552, Short.MAX_VALUE)
-        );
+        PANEL_MAINLayout.setHorizontalGroup(PANEL_MAINLayout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 704, Short.MAX_VALUE));
+        PANEL_MAINLayout.setVerticalGroup(PANEL_MAINLayout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 552, Short.MAX_VALUE));
 
         getContentPane().add(PANEL_MAIN, new java.awt.GridBagConstraints());
 
@@ -203,11 +200,28 @@ public class Usuario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        Loader l = new Loader();
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowClosing
+        Loader loader = new Loader();
         this.setEnabled(false);
-        l.setVisible(true);
-    }//GEN-LAST:event_formWindowClosing
+        loader.setVisible(true);
+
+        PerrosPET.actualizarPersonas();
+        loader.addValue();
+
+        PerrosPET.actualizarPerros();
+        loader.addValue();
+
+        PerrosPET.actualizarCitas();
+        loader.addValue();
+
+        PerrosPET.actualizarFacturas();
+        loader.addValue();
+
+        PerrosPET.actualizarHistoriales();
+        loader.addValue();
+
+        System.exit(0);
+    }// GEN-LAST:event_formWindowClosing
 
     // MOVERSE ENTRE LOS DIFERENTES PANELES
 

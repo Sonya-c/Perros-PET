@@ -169,7 +169,7 @@ public class PerrosPET {
             if (archivoPersonas.createNewFile()) {
                 try (FileWriter fw = new FileWriter(archivoPersonas.getAbsoluteFile(), true)) {
                     BufferedWriter bw = new BufferedWriter(fw);
-                    
+
                     for (Persona persona : personas) {
                         String nombre = persona.nombreUsuario;
                         String tipoUsuario = persona.tipoUsuario.toString();
@@ -180,7 +180,7 @@ public class PerrosPET {
                         bw.write(nombre + "/" + tipoUsuario + "/" + tipoDocumento + "/" + documento + "/" + contraseña);
                         bw.newLine();
                     }
- 
+
                     bw.flush();
                     bw.close();
                     fw.close();
@@ -193,6 +193,7 @@ public class PerrosPET {
 
     /**
      * Lee el archivo perros y crea los objetos. Si no exite el archivo los crea
+     * 
      * @throws ParseException
      */
     public static void leerPerros() throws ParseException {
@@ -230,7 +231,7 @@ public class PerrosPET {
             if (archivoPerros.createNewFile()) {
                 try (FileWriter fw = new FileWriter(archivoPerros.getAbsoluteFile(), true)) {
                     BufferedWriter bw = new BufferedWriter(fw);
-                    
+
                     for (Perro perro : perros) {
                         String nombreDueño = perro.dueño.nombreUsuario;
                         String nombrePerro = perro.nombre;
@@ -240,7 +241,7 @@ public class PerrosPET {
                         bw.write(nombreDueño + "/" + nombrePerro + "/" + raza + "/" + fechaNacimiento);
                         bw.newLine();
                     }
-                    
+
                     bw.flush();
                     bw.close();
                     fw.close();
@@ -253,6 +254,7 @@ public class PerrosPET {
 
     /**
      * Lee el archivo cita y crea los objetos. Si no existe el archivo los crea
+     * 
      * @throws ParseException
      */
     public static void leerCitas() throws ParseException {
@@ -313,8 +315,9 @@ public class PerrosPET {
     }
 
     public static Veterinaria.Perro encontrarPerro(Veterinaria.Usuario usuario, String nombrePerro) {
-        for (Veterinaria.Perro perro: usuario.misPerros) {
-            if ((perro.nombre).equals(nombrePerro)) return perro;
+        for (Veterinaria.Perro perro : usuario.misPerros) {
+            if ((perro.nombre).equals(nombrePerro))
+                return perro;
         }
         return null;
     }
@@ -328,13 +331,13 @@ public class PerrosPET {
                     for (Cita cita: citas) {
                         String servicios = cita.servicios;
                         String fechaCita = dateFormat.format(cita.fechaCita);
-                        String id = factura.id + "";e
-                        String id = c.id + "";
+                        int idFactura = cita.idFactura + "";e
+                        int idHistorial = cita.idHistorial + "";
                         String nombrePerro = cita.nombrePerro;
                         String nombreUsuario = cita.nombreUsuario;
                         String nombreVeterinario = cita.nombreVeterinario;
 
-                        bw.write("listaVerdadServicios + "/" + fechaCita + "/" + nombrePerro + "/" + usuario + "/" + nombreVeterinario");
+                        bw.write("servicios + "/" + fechaCita + "/" + idFactura + "/" + idHistorial + "/" + nombrePerro + "/" + nombreUsuario + "/" + nombreVeterinario");
                         bw.newLine();
                     }
                     
@@ -442,11 +445,11 @@ public class PerrosPET {
             if (archivoFacturas.createNewFile()) {
                 try (FileWriter fw = new FileWriter(archivoFacturas.getAbsoluteFile(), true)) {
                     BufferedWriter bw = new BufferedWriter(fw);
-                    
+
                     for (Factura factura : facturas) {
                         String id = factura.id + "";
                         String pagar = factura.totalPagar + "";
-                        
+
                         bw.write(id + "/" + pagar);
                         bw.newLine();
                     }
