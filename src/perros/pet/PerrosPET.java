@@ -16,9 +16,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 public class PerrosPET {
@@ -91,29 +89,15 @@ public class PerrosPET {
         leerFacturas();
         loader.addValue();
 
-        // LEER LOS DATOS DESDE LOS ARCHIVOS Y CREAR LOS OBJETOS
-        Veterinaria.Usuario usuario1 = new Veterinaria.Usuario("Brett Yang", TipoDocumento.CEDULA, "123", "123");
-        Veterinaria.Admi usuario2 = new Veterinaria.Admi("Eddy Chen", TipoDocumento.CEDULA, "666", "666");
-        Veterinaria.Usuario usuario3 = new Veterinaria.Usuario("Paquita la del barrio", TipoDocumento.CEDULA, "322",
-                "322");
-        Veterinario veterinario1 = new Veterinario("Tom Holland", TipoDocumento.CEDULA, "000", "000");
-        Admi admi1 = new Admi("Ulises", TipoDocumento.CEDULA, "444", "444");
-
-        Perro perro11 = new Perro(usuario1, "Toby", "NA", "Negro", new Date(2002, 02, 26));
-        Perro perro12 = new Perro(usuario1, "luis", "NA", "gris", new Date(2002, 11, 13));
-        Perro perro2 = new Perro(usuario3, "Firulais", "NA", "Marron", new Date(2002, 02, 26));
-
-        boolean servicios1[] = { true, true, true, true, true, true, true };
-        Cita cita1 = new Cita(servicios1, new Date(), perro11, usuario1);
-        Cita cita2 = new Cita(servicios1, new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime(), perro11,
-                usuario1);
-
-        boolean servicios2[] = { true, true, true, true, true, true, true };
-        Cita cita3 = new Cita(servicios2, new Date(), perro11, usuario3);
-
-        Factura factura = new Factura(cita1, 123);
-
-        Historial historial = new Historial(cita1, "mmal", "muy mal");
+        // objetos basicos
+        if (usuarios.isEmpty()) {
+            Veterinaria.Usuario usuario1 = new Veterinaria.Usuario("Usuario1", TipoDocumento.CEDULA, "Usuario1",
+                    "Usuario1");
+            Veterinaria.Admi admi1 = new Veterinaria.Admi("Admi1", TipoDocumento.CEDULA, "Admi1", "Admi1");
+            Veterinario veterinario1 = new Veterinario("Tom Holland", TipoDocumento.CEDULA, "000", "000");
+            Perro perro1 = new Perro(usuario1, "Toby", "NA", "Negro", new Date());
+            Perro perro2 = new Perro(usuario1, "Firulais", "NA", "Marron", new Date());
+        }
 
         // MOSTRAR LA PANTALLA DE INGRESO
         ingreso = new Ingreso();
@@ -164,29 +148,35 @@ public class PerrosPET {
         }
     }
 
-    public static void actualizarPersonas() throws IOException {
+    public static void actualizarPersonas() {
         if (archivoPersonas.delete()) {
-            if (archivoPersonas.createNewFile()) {
-                try (FileWriter fw = new FileWriter(archivoPersonas.getAbsoluteFile(), true)) {
-                    BufferedWriter bw = new BufferedWriter(fw);
+            try {
+                if (archivoPersonas.createNewFile()) {
+                    try (FileWriter fw = new FileWriter(archivoPersonas.getAbsoluteFile(), true)) {
+                        BufferedWriter bw = new BufferedWriter(fw);
 
-                    for (Persona persona : personas) {
-                        String nombre = persona.nombreUsuario;
-                        String tipoUsuario = persona.tipoUsuario.toString();
-                        String tipoDocumento = persona.tipoDocumento.toString();
-                        String documento = persona.documento;
-                        String contraseña = persona.contraseña;
+                        for (Persona persona : personas) {
+                            String nombre = persona.nombreUsuario;
+                            String tipoUsuario = persona.tipoUsuario.toString();
+                            String tipoDocumento = persona.tipoDocumento.toString();
+                            String documento = persona.documento;
+                            String contraseña = persona.contraseña;
 
-                        bw.write(nombre + "/" + tipoUsuario + "/" + tipoDocumento + "/" + documento + "/" + contraseña);
-                        bw.newLine();
+                            bw.write(nombre + "/" + tipoUsuario + "/" + tipoDocumento + "/" + documento + "/"
+                                    + contraseña);
+                            bw.newLine();
+                        }
+
+                        bw.flush();
+                        bw.close();
+                        fw.close();
+                    } catch (IOException ex) {
+                        System.out.println("Error en la creación del archivo");
                     }
-
-                    bw.flush();
-                    bw.close();
-                    fw.close();
-                } catch (IOException ex) {
-                    System.out.println("Error en la creación del archivo");
                 }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }
@@ -196,7 +186,7 @@ public class PerrosPET {
      * 
      * @throws ParseException
      */
-    public static void leerPerros() throws ParseException {
+    public static void leerPerros() {
         if (!archivoPerros.exists()) {
             try {
                 archivoPerros.createNewFile();
@@ -222,32 +212,42 @@ public class PerrosPET {
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("El archivo no se encontró");
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }
 
     public static void actualizarPerros() {
         if (archivoPerros.delete()) {
-            if (archivoPerros.createNewFile()) {
-                try (FileWriter fw = new FileWriter(archivoPerros.getAbsoluteFile(), true)) {
-                    BufferedWriter bw = new BufferedWriter(fw);
+            try {
+                if (archivoPerros.createNewFile()) {
+                    try (FileWriter fw = new FileWriter(archivoPerros.getAbsoluteFile(), true)) {
+                        BufferedWriter bw = new BufferedWriter(fw);
 
-                    for (Perro perro : perros) {
-                        String nombreDueño = perro.dueño.nombreUsuario;
-                        String nombrePerro = perro.nombre;
-                        String raza = perro.raza;
-                        String fechaNacimiento = dateFormat.format(perro.fechaNacimiento);
+                        for (Perro perro : perros) {
+                            String nombreDueño = perro.dueño.nombreUsuario;
+                            String nombrePerro = perro.nombre;
+                            String raza = perro.raza;
+                            String color = perro.color;
+                            String fechaNacimiento = dateFormat.format(perro.fechaNacimiento);
 
-                        bw.write(nombreDueño + "/" + nombrePerro + "/" + raza + "/" + fechaNacimiento);
-                        bw.newLine();
+                            bw.write(
+                                    nombreDueño + "/" + nombrePerro + "/" + raza + "/" + color + "/" + fechaNacimiento);
+                            bw.newLine();
+                        }
+
+                        bw.flush();
+                        bw.close();
+                        fw.close();
+                    } catch (IOException ex) {
+                        System.out.println("Error en la creación del archivo");
                     }
-
-                    bw.flush();
-                    bw.close();
-                    fw.close();
-                } catch (IOException ex) {
-                    System.out.println("Error en la creación del archivo");
                 }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }
@@ -257,7 +257,7 @@ public class PerrosPET {
      * 
      * @throws ParseException
      */
-    public static void leerCitas() throws ParseException {
+    public static void leerCitas() {
         if (!archivoCitas.exists()) {
             try {
                 archivoCitas.createNewFile();
@@ -299,7 +299,7 @@ public class PerrosPET {
                     cita.idHistorial = idHistorial;
 
                 }
-            } catch (FileNotFoundException e) {
+            } catch (FileNotFoundException | ParseException e) {
                 System.out.println("El archivo no se encontró");
             }
         }
@@ -324,29 +324,51 @@ public class PerrosPET {
 
     public static void actualizarCitas() {
         if (archivoCitas.delete()) {
-            if (archivoCitas.createNewFile()) {
-                try (FileWriter fw = new FileWriter(archivoCitas.getAbsoluteFile(), true)) {
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    
-                    for (Cita cita: citas) {
-                        String servicios = cita.servicios;
-                        String fechaCita = dateFormat.format(cita.fechaCita);
-                        int idFactura = cita.idFactura + "";e
-                        int idHistorial = cita.idHistorial + "";
-                        String nombrePerro = cita.nombrePerro;
-                        String nombreUsuario = cita.nombreUsuario;
-                        String nombreVeterinario = cita.nombreVeterinario;
+            try {
+                if (archivoCitas.createNewFile()) {
+                    try (FileWriter fw = new FileWriter(archivoCitas.getAbsoluteFile(), true)) {
+                        BufferedWriter bw = new BufferedWriter(fw);
 
-                        bw.write("servicios + "/" + fechaCita + "/" + idFactura + "/" + idHistorial + "/" + nombrePerro + "/" + nombreUsuario + "/" + nombreVeterinario");
-                        bw.newLine();
+                        for (Cita cita : citas) {
+
+                            String servicios = "";
+                            for (Boolean servicio : cita.servicios) {
+                                if (servicio) {
+                                    servicios += "0";
+                                } else {
+                                    servicios += "1";
+                                }
+
+                                if (!servicio.equals(cita.servicios[6])) {
+                                    servicios += ",";
+                                }
+                            }
+                            String fechaCita = dateFormat.format(cita.fecha);
+                            String idFactura = cita.idFactura + "";
+                            String idHistorial = cita.idHistorial + "";
+                            String nombrePerro = cita.perro.nombre;
+                            String nombreUsuario = cita.usuario.nombreUsuario;
+                            String nombreVeterinario;
+                            if (cita.veterinario != null)
+                                nombreVeterinario = cita.veterinario.nombreUsuario;
+                            else
+                                nombreVeterinario = "NoHay";
+
+                            bw.write(servicios + "/" + fechaCita + "/" + idFactura + "/" + idHistorial + "/"
+                                    + nombrePerro + "/" + nombreUsuario + "/" + nombreVeterinario);
+                            bw.newLine();
+                        }
+
+                        bw.flush();
+                        bw.close();
+                        fw.close();
+                    } catch (IOException ex) {
+                        System.out.println("Error en la creación del archivo");
                     }
-                    
-                    bw.flush();
-                    bw.close();
-                    fw.close();
-                } catch (IOException ex) {
-                    System.out.println("Error en la creación del archivo");
                 }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }
@@ -386,25 +408,30 @@ public class PerrosPET {
 
     public static void actualizarHistoriales() {
         if (archivoHistoriales.delete()) {
-            if (archivoHistoriales.createNewFile()) {
-                try (FileWriter fw = new FileWriter(archivoHistoriales.getAbsoluteFile(), true)) {
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    
-                    for (Historial historial : historiales) {
-                        String diagnostico = historial.diagnostico;
-                        String receta = historial.receta;
-                        String id = historial.id + "";
-                        
-                        bw.write(diagnostico + "/" + receta + "/" id);
-                        bw.newLine();
+            try {
+                if (archivoHistoriales.createNewFile()) {
+                    try (FileWriter fw = new FileWriter(archivoHistoriales.getAbsoluteFile(), true)) {
+                        BufferedWriter bw = new BufferedWriter(fw);
+
+                        for (Historial historial : historiales) {
+                            String diagnostico = historial.diagnostico;
+                            String receta = historial.receta;
+                            String id = historial.id + "";
+
+                            bw.write(diagnostico + "/" + receta + "/" + id);
+                            bw.newLine();
+                        }
+
+                        bw.flush();
+                        bw.close();
+                        fw.close();
+                    } catch (IOException ex) {
+                        System.out.println("Error en la creación del archivo");
                     }
-                    
-                    bw.flush();
-                    bw.close();
-                    fw.close();
-                } catch (IOException ex) {
-                    System.out.println("Error en la creación del archivo");
                 }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }
@@ -442,23 +469,28 @@ public class PerrosPET {
 
     public static void actualizarFacturas() {
         if (archivoFacturas.delete()) {
-            if (archivoFacturas.createNewFile()) {
-                try (FileWriter fw = new FileWriter(archivoFacturas.getAbsoluteFile(), true)) {
-                    BufferedWriter bw = new BufferedWriter(fw);
+            try {
+                if (archivoFacturas.createNewFile()) {
+                    try (FileWriter fw = new FileWriter(archivoFacturas.getAbsoluteFile(), true)) {
+                        BufferedWriter bw = new BufferedWriter(fw);
 
-                    for (Factura factura : facturas) {
-                        String id = factura.id + "";
-                        String pagar = factura.totalPagar + "";
+                        for (Factura factura : facturas) {
+                            String id = factura.id + "";
+                            String pagar = factura.totalPagar + "";
 
-                        bw.write(id + "/" + pagar);
-                        bw.newLine();
+                            bw.write(id + "/" + pagar);
+                            bw.newLine();
+                        }
+                        bw.flush();
+                        bw.close();
+                        fw.close();
+                    } catch (IOException ex) {
+                        System.out.println("Error en la creación del archivo");
                     }
-                    bw.flush();
-                    bw.close();
-                    fw.close();
-                } catch (IOException ex) {
-                    System.out.println("Error en la creación del archivo");
                 }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }

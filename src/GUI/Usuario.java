@@ -27,8 +27,8 @@ public class Usuario extends javax.swing.JFrame {
         modulo2 = new ModuloCitas(persona);
 
         /*
-         * Se crearon en un archivo aparte diferentes modulo que luego seran añadidos al
-         * algoritmo principal Cada modulo se escoje en función del tipo de usuario
+         * Se crearon en un archivo aparte diferentes modulo que luego serán añadidos al
+         * algoritmo principal. Cada modulo se escoje en función del tipo de usuario
          */
         switch (persona.tipoUsuario) {
         case VETERINARIO:
@@ -53,7 +53,7 @@ public class Usuario extends javax.swing.JFrame {
         IMG_PEFIL.setIcon(imageIcon);
 
         // Cada panel de modulo tiene un nombre asociado, podemos usar esos nombres para
-        // asignare un valor a los botones en el navegador
+        // asignarle un valor a los botones en el navegador
         BUTTON_MODULO1.setText(modulo1.getName());
         BUTTON_MODULO2.setText(modulo2.getName());
         BUTTON_MODULO3.setText(modulo3.getName());

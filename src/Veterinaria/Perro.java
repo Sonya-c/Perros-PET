@@ -18,7 +18,7 @@ public class Perro {
      * @param nombre          es el nombre del perro, En la lista principal este se
      *                        puede repetir. Pero, en la lista del dueño no.
      * @param raza            la raza del perro
-     * @param color           el color dde perro
+     * @param color           el color del perro
      * @param fechaNacimiento fecha de nacimiento del perro
      */
     public Perro(Usuario dueño, String nombre, String raza, String color, Date fechaNacimiento) {

@@ -34,9 +34,11 @@ public class Veterinario extends Persona {
      * este veterinario.
      */
     public void getCitas() {
-        for (Cita cita : PerrosPET.citas) {
-            if ((cita.veterinario).equals(this)) {
-                misCitas.add(cita);
+        if (PerrosPET.citas.isEmpty()) {
+            for (Cita cita : PerrosPET.citas) {
+                if ((cita.veterinario).equals(this)) {
+                    misCitas.add(cita);
+                }
             }
         }
     }
@@ -56,12 +58,12 @@ public class Veterinario extends Persona {
     }
 
     /**
-     * Data un fecha, se buscar el el veterinario esta disponible en esa fecha. Para
-     * ello, recorre todas las citas del veterinario, si esta coincide con la fecha
-     * dada.
+     * Dada un fecha, se busca en el veterinario si está disponible en esa fecha.
+     * Para ello, recorre todas las citas del veterinario, si esta coincide con la
+     * fecha dada.
      * 
      * @param fechaCita La fecha en la que quiere buscar la disponibilidad.
-     * @return La disponibilidad. True si esta disponible, false si no lo esta
+     * @return La disponibilidad. True si esta disponible, false si no lo está
      */
     public boolean disponible(Date fechaCita) {
         for (Cita cita : misCitas) {

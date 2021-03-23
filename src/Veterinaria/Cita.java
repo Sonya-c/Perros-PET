@@ -8,7 +8,7 @@ public class Cita {
     public Date fecha;
     public int idFactura;
     public int idHistorial;
-    public Factura factura; // true si ya es realizo
+    public Factura factura; // true si ya se realizó
     public Historial historial;
     public Perro perro;
     public Usuario usuario;
@@ -34,7 +34,7 @@ public class Cita {
         (PerrosPET.citas).add(this);
         (usuario.misCitas).add(this);
 
-        // Si un veterinario esta disponible, asignarle esta cita. Esto se deberia hacer
+        // Si un veterinario está disponible, asignarle esta cita. Esto se debería hacer
         // antes de crear la cita
         if (findVeterinario())
             (veterinario.misCitas).add(this);
@@ -53,7 +53,7 @@ public class Cita {
         this.veterinario = veterinario;
         this.existe = true;
 
-        // Añadir a la lista principa y a la lista de usuarios esta cita
+        // Añadir a la lista principal y a la lista de usuarios esta cita
         (PerrosPET.citas).add(this);
         (usuario.misCitas).add(this);
         (veterinario.misCitas).add(this);
@@ -65,7 +65,7 @@ public class Cita {
     }
 
     /**
-     * Que se debe hacer: Que veterinarios estan libres en la hora dada Recorrer la
+     * Que se debe hacer: Que veterinarios están libres en la hora dada. Recorrer la
      * lista de doctores y por cada doctor buscar que citas tiene programadas. Si no
      * tiene nunguna cita a esa hora, asignarle esta cita.
      */
@@ -75,17 +75,17 @@ public class Cita {
 
             if (!(elVeterinario.misCitas).isEmpty()) {
                 // Si el veterinario tiene citas: buscamos en todas ellas para confirmar sus
-                // disponivilidad en la fecha
+                // disponibilidad en la fecha
                 if (elVeterinario.disponible(this.fecha)) {
                     this.veterinario = elVeterinario;
                     return true; // Ya que ya tenemos veterinario, podemos terminar
                 } else {
-                    break; // Quiere decir que el veterinario esta ocupado
-                    // Asi que hay que buscar en el siguiente
+                    break; // Quiere decir que el veterinario está ocupado
+                    // Así que hay que buscar en el siguiente
                 }
             }
         }
-        // Si al final, no encontramos un veterinario que puedar atender en esta fecha,
+        // Si al final no encontramos un veterinario que puedar atender en esta fecha,
         // debemos enviar un mensaje de error
         return false;
     }
